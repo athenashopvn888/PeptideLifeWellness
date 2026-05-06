@@ -13,6 +13,7 @@ import {
   TrendingUp,
   Download,
   Smartphone,
+  ShoppingBag,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -84,27 +85,48 @@ const bottles = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="hero-gradient relative overflow-hidden" id="hero">
-        <div className="hero-gradient-overlay absolute inset-0" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm font-medium text-navy mb-6 shadow-sm">
+      {/* Hero Section — Full Bleed Banner */}
+      <section className="relative overflow-hidden" id="hero">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero-banner.png"
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-navy/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-transparent to-navy/80" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 sm:py-24 lg:py-32 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Text Content */}
+            <div className="animate-fade-in-up text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md px-4 py-2 rounded-full text-sm font-medium text-white/90 mb-6 border border-white/10">
                 <Sparkles size={16} className="text-green" />
-                Education · Tracking · Safety
+                Research Peptides · Education · Wellness
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
                 Peptide Life{' '}
-                <span className="text-blue">Wellness</span>
+                <span className="bg-gradient-to-r from-blue to-green bg-clip-text text-transparent">Wellness</span>
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray leading-relaxed max-w-lg">
-                Peptide education, daily wellness tracking, reminders, and safety-first guidance — built to help you stay informed and consistent.
+              <p className="mt-5 text-base sm:text-lg text-white/75 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Premium research peptides, educational tools, wellness tracking, and safety-first guidance — all in one place.
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <Link
+                  href="/shop"
+                  className="inline-flex items-center justify-center gap-2 bg-blue text-white px-7 py-4 rounded-xl text-sm font-semibold hover:bg-blue-dark transition-all duration-200 shadow-lg hover:shadow-xl"
+                  id="hero-cta-shop"
+                >
+                  <ShoppingBag size={18} />
+                  Shop Now
+                </Link>
                 <Link
                   href="/quiz"
-                  className="inline-flex items-center justify-center gap-2 bg-blue text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-blue-dark transition-all duration-200 shadow-md hover:shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur text-white px-6 py-4 rounded-xl text-sm font-semibold hover:bg-white/25 transition-all duration-200 border border-white/20"
                   id="hero-cta-quiz"
                 >
                   <ClipboardList size={18} />
@@ -112,27 +134,31 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/calculator"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-navy px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-silver transition-all duration-200 shadow-sm border border-border"
+                  className="inline-flex items-center justify-center gap-2 bg-green/90 text-white px-6 py-4 rounded-xl text-sm font-semibold hover:bg-green transition-all duration-200 shadow-lg"
                   id="hero-cta-calculator"
                 >
                   <Calculator size={18} />
-                  Use Peptide Calculator
-                </Link>
-                <Link
-                  href="/tracker"
-                  className="inline-flex items-center justify-center gap-2 bg-green text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:opacity-90 transition-all duration-200 shadow-md"
-                  id="hero-cta-tracker"
-                >
-                  <FlaskConical size={18} />
-                  Start Free Tracker
+                  Peptide Calculator
                 </Link>
               </div>
+
+              {/* Trust Badges */}
+              <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
+                {['99%+ Purity', 'Lab Tested', 'Discreet Shipping'].map((badge) => (
+                  <div key={badge} className="flex items-center gap-1.5 text-white/60 text-xs font-medium">
+                    <ShieldCheck size={14} className="text-green" />
+                    {badge}
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* Desktop Bottles */}
             <div className="hidden lg:flex items-center justify-center gap-6 animate-fade-in delay-300">
               {bottles.map((bottle, i) => (
                 <div
                   key={bottle.src}
-                  className={`relative animate-float`}
+                  className="relative animate-float"
                   style={{ animationDelay: `${i * 0.4}s` }}
                 >
                   <Image
@@ -140,7 +166,28 @@ export default function HomePage() {
                     alt={bottle.alt}
                     width={160}
                     height={280}
-                    className="drop-shadow-xl"
+                    className="drop-shadow-2xl"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Bottles — Horizontal Scroll */}
+          <div className="lg:hidden mt-8 -mx-4 px-4 overflow-x-auto">
+            <div className="flex gap-4 pb-4 justify-center">
+              {bottles.map((bottle, i) => (
+                <div
+                  key={bottle.src}
+                  className="shrink-0 bg-white/10 backdrop-blur-sm rounded-2xl p-3 border border-white/10 animate-fade-in-up"
+                  style={{ animationDelay: `${i * 0.15}s` }}
+                >
+                  <Image
+                    src={bottle.src}
+                    alt={bottle.alt}
+                    width={80}
+                    height={140}
+                    className="drop-shadow-lg"
                   />
                 </div>
               ))}
