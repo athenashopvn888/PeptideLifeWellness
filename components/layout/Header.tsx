@@ -25,22 +25,24 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-18">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0" id="header-logo">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0" id="header-logo">
             <Image
               src="/images/square logo.png"
               alt="Peptide Life Wellness"
-              width={36}
-              height={36}
+              width={48}
+              height={48}
               className="rounded-lg"
             />
-            <span className="hidden sm:inline text-navy font-bold text-lg">
-              Peptide Life Wellness
-            </span>
-            <span className="sm:hidden text-navy font-bold text-sm">
-              PLW
-            </span>
+            <div className="flex flex-col">
+              <span className="text-navy font-bold text-sm sm:text-lg leading-tight">
+                Peptide Life Wellness
+              </span>
+              <span className="hidden sm:block text-[10px] text-gray tracking-widest uppercase">
+                Science. Balance. Vitality.
+              </span>
+            </div>
           </Link>
 
           {/* Desktop nav */}

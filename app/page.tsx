@@ -4,7 +4,6 @@ import {
   FlaskConical,
   Calculator,
   CalendarCheck,
-  Bell,
   BookOpen,
   ShieldCheck,
   ClipboardList,
@@ -15,9 +14,15 @@ import {
   Smartphone,
   ShoppingBag,
   Star,
+  ShoppingCart,
+  Award,
+  Truck,
+  Beaker,
+  CheckCircle,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import MolecularBackground from '@/components/ui/MolecularBackground';
+import { products } from '@/lib/data/products';
 
 export const metadata: Metadata = {
   title: {
@@ -27,159 +32,67 @@ export const metadata: Metadata = {
     'Premium research peptides, educational tools, daily wellness tracking, and safety-first guidance. Free peptide calculator, wellness quiz, and installable tracker app.',
 };
 
-const features = [
-  {
-    icon: ShoppingBag,
-    title: 'Shop Peptides',
-    description: '99%+ purity, third-party tested research peptides shipped discreetly.',
-    href: '/shop',
-    color: 'text-navy',
-    bg: 'bg-blue-soft',
-  },
-  {
-    icon: ClipboardList,
-    title: 'Wellness Quiz',
-    description: 'Find your wellness focus with a personalized assessment.',
-    href: '/quiz',
-    color: 'text-blue',
-    bg: 'bg-blue-soft',
-  },
-  {
-    icon: Calculator,
-    title: 'Peptide Calculator',
-    description: 'Educational tool for understanding units and concentration.',
-    href: '/calculator',
-    color: 'text-green',
-    bg: 'bg-green-soft',
-  },
-  {
-    icon: CalendarCheck,
-    title: 'Daily Tracker',
-    description: 'Build a simple daily routine and log wellness patterns.',
-    href: '/tracker',
-    color: 'text-blue',
-    bg: 'bg-blue-soft',
-  },
-  {
-    icon: BookOpen,
-    title: 'Education Guides',
-    description: 'In-depth articles on peptides, safety, and wellness tracking.',
-    href: '/guides',
-    color: 'text-green',
-    bg: 'bg-green-soft',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Safety First',
-    description: 'Stay informed with safety-first educational content.',
-    href: '/safety-canada',
-    color: 'text-navy',
-    bg: 'bg-navy-50',
-  },
-];
+const featuredSlugs = ['bpc-157', 'tb-500', 'kpv', 'ipamorelin'];
+const featuredProducts = products.filter((p) => featuredSlugs.includes(p.slug));
 
-const bottles = [
-  { src: '/images/samplebottle1.png', alt: 'Wellness product sample' },
-  { src: '/images/recoverybottle1.png', alt: 'Recovery wellness product' },
-  { src: '/images/musclebottle1.png', alt: 'Fitness wellness product' },
+const heroBottles = [
+  { src: '/images/recoverybottle1.png', alt: 'BPC-157 Research Peptide' },
+  { src: '/images/recoverybottle2.png', alt: 'TB-500 Research Peptide' },
+  { src: '/images/musclebottle1.png', alt: 'Ipamorelin Research Peptide' },
+  { src: '/images/samplebottle1.png', alt: 'KPV Research Peptide' },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section — Clean Light with Molecular Animations */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden bg-white" id="hero">
-        <MolecularBackground density="dense" />
+        <MolecularBackground density="normal" />
         <div className="hero-gradient-overlay absolute inset-0" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 sm:py-20 lg:py-28 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6 sm:py-16 lg:py-20 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
             {/* Text Content */}
-            <div className="animate-fade-in-up text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-blue-soft/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-navy mb-6 border border-blue/10">
-                <Sparkles size={16} className="text-green" />
-                Science. Balance. Vitality.
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-tight tracking-tight">
-                Peptide Life{' '}
+            <div className="animate-fade-in-up">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy leading-tight tracking-tight">
+                Science-Driven{' '}
                 <span className="text-gradient-brand">Wellness</span>
               </h1>
-              <p className="mt-5 text-base sm:text-lg text-gray leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Premium research peptides, educational tools, wellness tracking, and safety-first guidance — all in one place.
+              <p className="mt-4 text-base sm:text-lg text-gray leading-relaxed max-w-md">
+                Premium, lab-tested peptides formulated to support your health, performance, and vitality.
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/shop"
-                  className="inline-flex items-center justify-center gap-2 bg-navy text-white px-7 py-4 rounded-xl text-sm font-semibold hover:bg-navy-light transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center justify-center gap-2 bg-navy text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-navy-light transition-all duration-200 shadow-lg"
                   id="hero-cta-shop"
                 >
-                  <ShoppingBag size={18} />
-                  Shop Now
+                  Shop Now <ArrowRight size={16} />
                 </Link>
                 <Link
-                  href="/quiz"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-navy px-6 py-4 rounded-xl text-sm font-semibold hover:bg-silver transition-all duration-200 border border-border shadow-sm"
-                  id="hero-cta-quiz"
+                  href="/guides"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-navy px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-silver transition-all duration-200 border-2 border-navy"
+                  id="hero-cta-learn"
                 >
-                  <ClipboardList size={18} />
-                  Free Wellness Quiz
+                  Learn More
                 </Link>
-                <Link
-                  href="/calculator"
-                  className="inline-flex items-center justify-center gap-2 bg-green text-white px-6 py-4 rounded-xl text-sm font-semibold hover:bg-green-dark transition-all duration-200 shadow-md"
-                  id="hero-cta-calculator"
-                >
-                  <Calculator size={18} />
-                  Calculator
-                </Link>
-              </div>
-
-              {/* Trust Badges */}
-              <div className="mt-8 flex flex-wrap gap-5 justify-center lg:justify-start">
-                {['99%+ Purity', 'Lab Tested', 'Discreet Shipping'].map((badge) => (
-                  <div key={badge} className="flex items-center gap-1.5 text-gray text-xs font-medium">
-                    <ShieldCheck size={14} className="text-green" />
-                    {badge}
-                  </div>
-                ))}
               </div>
             </div>
 
-            {/* Desktop Bottles */}
-            <div className="hidden lg:flex items-center justify-center gap-6 animate-fade-in delay-300">
-              {bottles.map((bottle, i) => (
+            {/* Hero Bottles — Large & Prominent */}
+            <div className="flex items-end justify-center gap-2 sm:gap-4 animate-fade-in">
+              {heroBottles.map((bottle, i) => (
                 <div
                   key={bottle.src}
-                  className="relative animate-float"
-                  style={{ animationDelay: `${i * 0.4}s` }}
+                  className="relative animate-fade-in-up"
+                  style={{ animationDelay: `${i * 0.1}s` }}
                 >
                   <Image
                     src={bottle.src}
                     alt={bottle.alt}
-                    width={160}
-                    height={280}
-                    className="drop-shadow-xl"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile Bottles */}
-          <div className="lg:hidden mt-8 -mx-4 px-4">
-            <div className="flex gap-4 pb-2 justify-center">
-              {bottles.map((bottle, i) => (
-                <div
-                  key={bottle.src}
-                  className="shrink-0 bg-white rounded-2xl p-3 border border-border shadow-sm animate-fade-in-up"
-                  style={{ animationDelay: `${i * 0.15}s` }}
-                >
-                  <Image
-                    src={bottle.src}
-                    alt={bottle.alt}
-                    width={70}
-                    height={120}
-                    className="drop-shadow-md"
+                    width={140}
+                    height={220}
+                    className="drop-shadow-xl w-[70px] sm:w-[100px] lg:w-[140px] h-auto"
                   />
                 </div>
               ))}
@@ -188,308 +101,230 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Products Banner */}
-      <section className="py-8 bg-navy" id="featured-banner">
+      {/* Trust Badges Bar */}
+      <section className="bg-white border-y border-border py-5" id="trust-badges">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3 text-white">
-              <Star size={18} className="text-green fill-green" />
-              <span className="text-sm font-medium">Trusted by wellness enthusiasts across Canada</span>
-            </div>
-            <Link href="/shop" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition-colors">
-              Browse All Products <ArrowRight size={14} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Feature Cards */}
-      <section className="py-16 sm:py-24 bg-white relative" id="features">
-        <MolecularBackground density="sparse" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy">
-              Everything You Need
-            </h2>
-            <p className="mt-4 text-lg text-gray max-w-2xl mx-auto">
-              Tools and education designed to help you stay organized, informed, and consistent.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature) => (
-              <Link
-                key={feature.title}
-                href={feature.href}
-                className="group p-6 rounded-2xl border border-border bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                id={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${feature.bg} mb-4`}>
-                  <feature.icon size={24} className={feature.color} />
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+            {[
+              { icon: Beaker, label: 'Lab Tested', desc: 'Every batch third-party tested for purity and potency' },
+              { icon: Award, label: 'Premium Quality', desc: 'Sourced from trusted manufacturers. Built to perform.' },
+              { icon: ShieldCheck, label: 'Clean Formulas', desc: 'No unnecessary additives. Just science-backed ingredients.' },
+              { icon: Truck, label: 'Fast Shipping', desc: 'Quick, discreet, and reliable delivery.' },
+            ].map((badge) => (
+              <div key={badge.label} className="flex flex-col items-center text-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-blue-soft flex items-center justify-center">
+                  <badge.icon size={20} className="text-navy" />
                 </div>
-                <h3 className="text-lg font-semibold text-navy mb-2 group-hover:text-blue transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-gray leading-relaxed">{feature.description}</p>
-              </Link>
+                <p className="text-xs sm:text-sm font-semibold text-navy">{badge.label}</p>
+                <p className="text-[10px] sm:text-xs text-gray leading-snug hidden sm:block">{badge.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Quiz Section */}
-      <section className="py-16 sm:py-24 bg-silver relative" id="quiz-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-lg border border-border relative overflow-hidden">
-            <MolecularBackground density="sparse" />
-            <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
-              <div>
-                <div className="inline-flex items-center gap-2 bg-blue-soft text-navy px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                  <Sparkles size={14} className="text-blue" />
-                  FREE QUIZ
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-navy">
-                  Find Your Wellness Focus
-                </h2>
-                <p className="mt-4 text-gray leading-relaxed">
-                  Answer a few simple questions and get a personalized educational wellness focus based on your goals, experience level, and tracking needs.
-                </p>
-                <Link
-                  href="/quiz"
-                  className="mt-6 inline-flex items-center gap-2 bg-navy text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-navy-light transition-all duration-200 shadow-md"
-                  id="quiz-section-cta"
-                >
-                  Take the Free Quiz
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-              <div className="flex justify-center">
-                <Image
-                  src="/images/samplebottle2.png"
-                  alt="Peptide wellness quiz"
-                  width={240}
-                  height={340}
-                  className="drop-shadow-lg animate-float"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Calculator Section */}
-      <section className="py-16 sm:py-24 bg-white relative" id="calculator-section">
-        <MolecularBackground density="sparse" />
+      {/* Featured Products */}
+      <section className="py-12 sm:py-16 bg-silver relative" id="featured-products">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center order-2 md:order-1">
-              <div className="bg-silver rounded-2xl p-8 w-full max-w-sm border border-border">
-                <div className="space-y-4">
-                  {['Vial Amount (mg)', 'Liquid Added (mL)', 'Desired Amount (mcg)', 'Syringe Units'].map((label) => (
-                    <div key={label}>
-                      <label className="text-xs font-medium text-gray-dark mb-1 block">{label}</label>
-                      <div className="bg-white rounded-lg h-10 border border-border" />
-                    </div>
-                  ))}
-                  <div className="bg-green-soft rounded-lg p-4 text-center">
-                    <p className="text-xs text-gray mb-1">Estimated Result</p>
-                    <p className="text-2xl font-bold text-green">—</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="order-1 md:order-2">
-              <div className="inline-flex items-center gap-2 bg-green-soft text-green-dark px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                <Calculator size={14} />
-                EDUCATIONAL TOOL
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy">
-                Peptide Calculator
-              </h2>
-              <p className="mt-4 text-gray leading-relaxed">
-                Use our educational calculator to better understand units, concentration, and tracking. Always confirm any health decisions with a licensed professional.
-              </p>
-              <Link
-                href="/calculator"
-                className="mt-6 inline-flex items-center gap-2 bg-navy text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-navy-light transition-all duration-200 shadow-md"
-                id="calculator-section-cta"
-              >
-                Open Calculator
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tracker Section */}
-      <section className="py-16 sm:py-24 bg-silver relative" id="tracker-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-blue-soft text-navy px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                <Smartphone size={14} className="text-blue" />
-                PWA APP
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy">
-                Your Daily Wellness Tracker
-              </h2>
-              <p className="mt-4 text-gray leading-relaxed">
-                Build a simple daily routine, set reminders, log notes, and track wellness patterns over time.
-              </p>
-              <ul className="mt-6 space-y-3">
-                {[
-                  'Add your routine',
-                  'Set reminders',
-                  'Log usage',
-                  'Track sleep, energy, recovery, mood, skin, weight',
-                  'Export your history',
-                  'Install to your phone as a PWA',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-gray-dark">
-                    <div className="w-5 h-5 rounded-full bg-green-soft flex items-center justify-center shrink-0 mt-0.5">
-                      <TrendingUp size={12} className="text-green" />
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/tracker"
-                  className="inline-flex items-center justify-center gap-2 bg-green text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-green-dark transition-all duration-200 shadow-md"
-                  id="tracker-section-cta"
-                >
-                  <FlaskConical size={18} />
-                  Start Free Tracker
-                </Link>
-                <button
-                  className="inline-flex items-center justify-center gap-2 bg-white text-navy px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-silver transition-all duration-200 shadow-sm border border-border"
-                  id="install-pwa-cta"
-                >
-                  <Download size={18} />
-                  Install Free App
-                </button>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <div className="grid grid-cols-2 gap-4 max-w-sm">
-                {[
-                  { src: '/images/recoverybottle2.png', alt: 'Recovery wellness' },
-                  { src: '/images/musclebottle2.png', alt: 'Fitness wellness' },
-                  { src: '/images/samplebottle3.png', alt: 'Sample product' },
-                  { src: '/images/musclebottle3.png', alt: 'Muscle wellness' },
-                ].map((img) => (
-                  <div key={img.src} className="bg-white rounded-2xl p-4 shadow-md border border-border">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      width={140}
-                      height={200}
-                      className="w-full h-auto"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* News Section */}
-      <section className="py-16 sm:py-24 bg-white relative" id="news-section">
-        <MolecularBackground density="sparse" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy">
-              Peptide Wellness Education
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">
+              Featured Peptides
             </h2>
-            <p className="mt-4 text-lg text-gray max-w-2xl mx-auto">
-              Read safety-first updates, wellness trends, and practical education written in clear language.
+            <p className="mt-2 text-sm text-gray">
+              Science-backed peptides for targeted wellness and performance.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'What Are Peptides? A Beginner-Friendly Guide',
-                excerpt: 'Understand the basics of peptides in a clear, educational format designed for newcomers.',
-                category: 'Beginner Education',
-                slug: 'what-are-peptides',
-              },
-              {
-                title: 'Peptide Safety in Canada: What Consumers Should Know',
-                excerpt: 'An educational overview of safety considerations and regulations for Canadian consumers.',
-                category: 'Safety',
-                slug: 'peptide-safety-canada',
-              },
-              {
-                title: 'Why Daily Wellness Logs Help Build Consistency',
-                excerpt: 'Learn how tracking your daily wellness patterns can support more informed health conversations.',
-                category: 'Wellness Tracking',
-                slug: 'peptide-wellness-tracker',
-              },
-            ].map((post) => (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {featuredProducts.map((product) => (
               <Link
-                key={post.slug}
-                href={`/guides/${post.slug}`}
-                className="group bg-silver rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border"
+                key={product.slug}
+                href={`/shop/${product.slug}`}
+                className="group bg-white rounded-2xl p-4 sm:p-5 border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="h-40 bg-gradient-to-br from-blue-soft to-green-soft flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 hex-pattern opacity-30" />
-                  <BookOpen size={40} className="text-navy/20 relative z-10" />
+                {/* Product Image — BIG */}
+                <div className="flex justify-center mb-4">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={160}
+                    height={220}
+                    className="w-[100px] sm:w-[130px] lg:w-[160px] h-auto drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="p-6 bg-white">
-                  <span className="inline-block bg-blue-soft text-xs font-medium text-navy px-2.5 py-1 rounded-full mb-3">
-                    {post.category}
-                  </span>
-                  <h3 className="text-base font-semibold text-navy group-hover:text-blue transition-colors leading-snug">
-                    {post.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-gray leading-relaxed">{post.excerpt}</p>
+                {/* Product Info */}
+                <h3 className="text-sm sm:text-base font-bold text-navy">{product.name}</h3>
+                <p className="text-xs text-blue font-semibold mt-0.5">{product.name === 'Semaglutide' ? '2MG' : '5MG'}</p>
+                <ul className="mt-2 space-y-1 hidden sm:block">
+                  {product.details.slice(0, 2).map((b) => (
+                    <li key={b} className="flex items-start gap-1.5 text-[11px] text-gray">
+                      <CheckCircle size={12} className="text-green shrink-0 mt-0.5" />
+                      {b}
+                    </li>
+                  ))}
+                  <li className="flex items-start gap-1.5 text-[11px] text-gray">
+                    <CheckCircle size={12} className="text-green shrink-0 mt-0.5" />
+                    Lab Tested
+                  </li>
+                </ul>
+                <p className="mt-3 text-lg font-bold text-navy">${product.price.toFixed(2)}</p>
+                <div className="mt-2 inline-flex items-center gap-1.5 bg-navy text-white text-xs font-semibold px-4 py-2 rounded-full group-hover:bg-navy-light transition-colors">
+                  <ShoppingCart size={13} />
+                  Shop Now
                 </div>
               </Link>
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link
-              href="/guides"
-              className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:text-blue transition-colors"
-            >
-              View All Guides
-              <ArrowRight size={16} />
+            <Link href="/shop" className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:text-blue transition-colors">
+              View All Products <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Compliance Section */}
-      <section className="py-16 sm:py-24 bg-silver" id="compliance-section">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-border shadow-sm relative overflow-hidden">
-            <MolecularBackground density="sparse" />
-            <div className="relative z-10">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-green-soft mb-6">
-                <ShieldCheck size={32} className="text-green" />
+      {/* Science. Balance. Vitality. Brand Section */}
+      <section className="py-12 sm:py-16 bg-white relative" id="brand-values">
+        <MolecularBackground density="sparse" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="bg-silver rounded-3xl p-6 sm:p-10 border border-border">
+            <div className="grid md:grid-cols-2 gap-6 items-center mb-8">
+              <div className="flex justify-center md:justify-start">
+                <Image
+                  src="/images/square logo.png"
+                  alt="Peptide Life Wellness"
+                  width={120}
+                  height={120}
+                  className="drop-shadow-md"
+                />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy">
-                Safety-First Education
-              </h2>
-              <p className="mt-6 text-gray leading-relaxed max-w-2xl mx-auto">
-                Peptide Life Wellness provides educational content and wellness tracking tools only. This platform does not provide medical advice, diagnosis, treatment, prescription guidance, or dosing instructions. Always speak with a licensed healthcare professional before using prescription, injectable, or regulated health products.
-              </p>
-              <Link
-                href="/safety-canada"
-                className="mt-8 inline-flex items-center gap-2 bg-navy text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-navy-light transition-all duration-200 shadow-md"
-                id="safety-cta"
-              >
-                <ShieldCheck size={18} />
-                Read Safety Guide
-              </Link>
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-navy">
+                  Science. Balance. <span className="text-green">Vitality.</span>
+                </h2>
+                <p className="mt-3 text-sm text-gray leading-relaxed">
+                  At Peptide Life Wellness, we believe true wellness is built on science, balance, and premium quality. Our peptides are meticulously sourced, lab-tested, and designed to help you live at your best — every day.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+              {[
+                { icon: FlaskConical, title: 'Science-Driven', desc: 'Cutting-edge research to deliver effective, evidence-based solutions.' },
+                { icon: Sparkles, title: 'Balance', desc: 'Wellness is more than a goal — it\'s a lifestyle of harmony for body and mind.' },
+                { icon: Star, title: 'Vitality', desc: 'Our mission is to help you unlock your potential and thrive with confidence.' },
+              ].map((item) => (
+                <div key={item.title} className="text-center">
+                  <div className="w-10 h-10 rounded-full bg-blue-soft flex items-center justify-center mx-auto mb-2">
+                    <item.icon size={18} className="text-navy" />
+                  </div>
+                  <h3 className="text-xs sm:text-sm font-semibold text-navy">{item.title}</h3>
+                  <p className="text-[10px] sm:text-xs text-gray mt-1 hidden sm:block">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* WebApplication Schema */}
+      {/* Tools Section — Quiz + Calculator + Tracker */}
+      <section className="py-12 sm:py-16 bg-silver relative" id="tools-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">
+              Free Wellness Tools
+            </h2>
+            <p className="mt-2 text-sm text-gray">Education and tracking tools to support your wellness journey.</p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
+            {[
+              { icon: ClipboardList, title: 'Wellness Quiz', desc: 'Find your focus with a personalized assessment.', href: '/quiz', color: 'bg-blue-soft', iconColor: 'text-blue' },
+              { icon: Calculator, title: 'Peptide Calculator', desc: 'Educational tool for units and concentration.', href: '/calculator', color: 'bg-green-soft', iconColor: 'text-green' },
+              { icon: CalendarCheck, title: 'Daily Tracker', desc: 'Build routines and log wellness patterns.', href: '/tracker', color: 'bg-blue-soft', iconColor: 'text-navy' },
+            ].map((tool) => (
+              <Link
+                key={tool.title}
+                href={tool.href}
+                className="group bg-white rounded-2xl p-6 border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center"
+              >
+                <div className={`w-14 h-14 rounded-2xl ${tool.color} flex items-center justify-center mx-auto mb-4`}>
+                  <tool.icon size={26} className={tool.iconColor} />
+                </div>
+                <h3 className="text-base font-semibold text-navy group-hover:text-blue transition-colors">{tool.title}</h3>
+                <p className="mt-2 text-xs text-gray">{tool.desc}</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-navy group-hover:text-blue transition-colors">
+                  Try Free <ArrowRight size={12} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News / Guides Section */}
+      <section className="py-12 sm:py-16 bg-white relative" id="news-section">
+        <MolecularBackground density="sparse" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">
+              Peptide Education
+            </h2>
+            <p className="mt-2 text-sm text-gray">Safety-first articles and wellness guides.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {[
+              { title: 'What Are Peptides? A Beginner Guide', category: 'Education', slug: 'what-are-peptides' },
+              { title: 'Peptide Safety in Canada', category: 'Safety', slug: 'peptide-safety-canada' },
+              { title: 'Why Daily Wellness Logs Matter', category: 'Tracking', slug: 'peptide-wellness-tracker' },
+            ].map((post) => (
+              <Link
+                key={post.slug}
+                href={`/guides/${post.slug}`}
+                className="group bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-border"
+              >
+                <div className="h-32 sm:h-40 bg-gradient-to-br from-blue-soft to-green-soft flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 hex-pattern opacity-30" />
+                  <BookOpen size={36} className="text-navy/20 relative z-10" />
+                </div>
+                <div className="p-5 bg-white">
+                  <span className="inline-block bg-blue-soft text-[10px] font-semibold text-navy px-2.5 py-1 rounded-full mb-2">
+                    {post.category}
+                  </span>
+                  <h3 className="text-sm font-semibold text-navy group-hover:text-blue transition-colors leading-snug">
+                    {post.title}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/guides" className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:text-blue transition-colors">
+              View All Guides <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Compliance Footer */}
+      <section className="py-10 bg-silver" id="compliance-section">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-border">
+            <ShieldCheck size={28} className="text-green mx-auto mb-3" />
+            <h2 className="text-lg sm:text-xl font-bold text-navy">Safety-First Education</h2>
+            <p className="mt-3 text-xs sm:text-sm text-gray leading-relaxed max-w-2xl mx-auto">
+              Peptide Life Wellness provides educational content and wellness tracking tools only. Always speak with a licensed healthcare professional before using prescription, injectable, or regulated health products.
+            </p>
+            <Link
+              href="/safety-canada"
+              className="mt-4 inline-flex items-center gap-2 bg-navy text-white px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-navy-light transition-all"
+              id="safety-cta"
+            >
+              <ShieldCheck size={14} />
+              Read Safety Guide
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -498,15 +333,10 @@ export default function HomePage() {
             '@type': 'WebApplication',
             name: 'Peptide Life Wellness Tracker',
             url: 'https://peptidelifewellness.com/tracker',
-            description:
-              'Free peptide wellness tracker app with daily logs, reminders, and wellness pattern tracking.',
+            description: 'Free peptide wellness tracker app with daily logs, reminders, and wellness pattern tracking.',
             applicationCategory: 'HealthApplication',
             operatingSystem: 'Web',
-            offers: {
-              '@type': 'Offer',
-              price: '0',
-              priceCurrency: 'CAD',
-            },
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'CAD' },
           }),
         }}
       />
