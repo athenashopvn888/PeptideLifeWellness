@@ -26,7 +26,7 @@ export default function ShopGrid() {
   const filtered = activeCategory === 'all'
     ? products
     : products.filter(
-        (p) => p.category.toLowerCase().replace(/[\s]+/g, '-') === activeCategory
+        (p) => p.category.toLowerCase().replace(/[\s&]+/g, '-').replace(/-+/g, '-') === activeCategory
       );
 
   return (
