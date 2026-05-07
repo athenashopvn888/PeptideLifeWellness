@@ -21,13 +21,13 @@ export interface Product {
 
 export const shopCategories = [
   { slug: 'all', label: 'Shop All' },
-  { slug: 'recovery', label: 'Recovery & Healing' },
+  { slug: 'recovery-healing', label: 'Recovery & Healing' },
   { slug: 'muscle-growth', label: 'Muscle & Growth' },
-  { slug: 'weight-loss', label: 'Weight Management' },
-  { slug: 'anti-aging', label: 'Anti-Aging & Skin' },
-  { slug: 'cognitive', label: 'Cognitive & Focus' },
+  { slug: 'weight-management', label: 'Weight Management' },
+  { slug: 'anti-aging-skin', label: 'Anti-Aging & Skin' },
+  { slug: 'cognitive-focus', label: 'Cognitive & Focus' },
   { slug: 'sexual-health', label: 'Sexual Health' },
-  { slug: 'immune', label: 'Immune Support' },
+  { slug: 'immune-support', label: 'Immune Support' },
   { slug: 'ancillaries', label: 'Ancillaries' },
 ];
 

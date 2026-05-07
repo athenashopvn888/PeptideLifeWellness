@@ -9,13 +9,13 @@ import { Star, ShoppingCart, Eye } from 'lucide-react';
 
 const categoryIcons: Record<string, string> = {
   all: '/images/novapure-circle.png',
-  recovery: '/images/icon-healing.png',
+  'recovery-healing': '/images/icon-healing.png',
   'muscle-growth': '/images/icon-muscle.png',
-  'weight-loss': '/images/icon-weight.png',
-  'anti-aging': '/images/icon-antiaging.png',
-  cognitive: '/images/icon-cognitive.png',
+  'weight-management': '/images/icon-weight.png',
+  'anti-aging-skin': '/images/icon-antiaging.png',
+  'cognitive-focus': '/images/icon-cognitive.png',
   'sexual-health': '/images/icon-sexual.png',
-  immune: '/images/icon-immune.png',
+  'immune-support': '/images/icon-immune.png',
   ancillaries: '/images/icon-ancillaries.png',
 };
 

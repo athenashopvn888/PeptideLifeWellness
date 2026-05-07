@@ -53,13 +53,13 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-8 sm:mt-10">
             {[
-              { label: 'Recovery & Healing', icon: '/images/icon-healing.png', slug: 'recovery' },
+              { label: 'Recovery & Healing', icon: '/images/icon-healing.png', slug: 'recovery-healing' },
               { label: 'Muscle & Growth', icon: '/images/icon-muscle.png', slug: 'muscle-growth' },
-              { label: 'Weight Management', icon: '/images/icon-weight.png', slug: 'weight-loss' },
-              { label: 'Anti-Aging & Skin', icon: '/images/icon-antiaging.png', slug: 'anti-aging' },
-              { label: 'Cognitive & Focus', icon: '/images/icon-cognitive.png', slug: 'cognitive' },
+              { label: 'Weight Management', icon: '/images/icon-weight.png', slug: 'weight-management' },
+              { label: 'Anti-Aging & Skin', icon: '/images/icon-antiaging.png', slug: 'anti-aging-skin' },
+              { label: 'Cognitive & Focus', icon: '/images/icon-cognitive.png', slug: 'cognitive-focus' },
               { label: 'Sexual Health', icon: '/images/icon-sexual.png', slug: 'sexual-health' },
-              { label: 'Immune Support', icon: '/images/icon-immune.png', slug: 'immune' },
+              { label: 'Immune Support', icon: '/images/icon-immune.png', slug: 'immune-support' },
               { label: 'Ancillaries', icon: '/images/icon-ancillaries.png', slug: 'ancillaries' },
             ].map((cat) => (
               <Link
