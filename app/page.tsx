@@ -35,58 +35,16 @@ export const metadata: Metadata = {
 const featuredSlugs = ['bpc-157', 'tb-500', 'semaglutide', 'ipamorelin'];
 const featuredProducts = products.filter((p) => featuredSlugs.includes(p.slug));
 
+import HeroCarousel from '@/components/ui/HeroCarousel';
+
 export default function HomePage() {
   return (
     <>
-      {/* ==========================================
-          HERO — Full-Width Lab Photo (Revico-style)
-          ========================================== */}
-      <section className="relative overflow-hidden" id="hero">
-        {/* Full-width lab background image */}
-        <div className="relative min-h-[420px] sm:min-h-[500px] lg:min-h-[560px]">
-          <Image
-            src="/images/lab-hero.png"
-            alt="Pharmaceutical laboratory"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/60 to-navy/30" />
-
-          {/* Hero text content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center min-h-[420px] sm:min-h-[500px] lg:min-h-[560px]">
-            <div className="max-w-xl animate-fade-in-up py-12">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] tracking-tight">
-                Buy Research Peptides Canada |{' '}
-                <span className="text-green">Pharmaceutical Grade</span> Peptides
-              </h1>
-              <p className="mt-4 text-sm sm:text-base text-white/80 leading-relaxed max-w-md">
-                Canadian-Sourced · Independently Verified · For Lab Use Only
-              </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/shop"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-full text-base font-semibold hover:bg-silver transition-all duration-200 shadow-lg"
-                  id="hero-cta-shop"
-                >
-                  Browse Peptides
-                </Link>
-                <Link
-                  href="/lab-testing"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-white/20 transition-all duration-200 border border-white/30"
-                  id="hero-cta-lab"
-                >
-                  <FileCheck size={18} /> View Lab Results
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* HERO — Sliding Banner Carousel */}
+      <HeroCarousel />
 
       {/* ==========================================
-          SHOP BY CATEGORY — Circular Icons (Revico-style)
+          SHOP BY CATEGORY — Custom Icon Images
           ========================================== */}
       <section className="py-10 sm:py-14 bg-white" id="shop-by-category">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -95,22 +53,28 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-8 sm:mt-10">
             {[
-              { label: 'Recovery & Healing', icon: '🔬', slug: 'recovery' },
-              { label: 'Muscle & Growth', icon: '💪', slug: 'muscle-growth' },
-              { label: 'Weight Management', icon: '⚖️', slug: 'weight-loss' },
-              { label: 'Anti-Aging & Skin', icon: '✨', slug: 'anti-aging' },
-              { label: 'Cognitive & Focus', icon: '🧠', slug: 'cognitive' },
-              { label: 'Sexual Health', icon: '❤️', slug: 'sexual-health' },
-              { label: 'Immune Support', icon: '🛡️', slug: 'immune' },
-              { label: 'Ancillaries', icon: '🧪', slug: 'ancillaries' },
+              { label: 'Recovery & Healing', icon: '/images/icon-healing.png', slug: 'recovery' },
+              { label: 'Muscle & Growth', icon: '/images/icon-muscle.png', slug: 'muscle-growth' },
+              { label: 'Weight Management', icon: '/images/icon-weight.png', slug: 'weight-loss' },
+              { label: 'Anti-Aging & Skin', icon: '/images/icon-antiaging.png', slug: 'anti-aging' },
+              { label: 'Cognitive & Focus', icon: '/images/icon-cognitive.png', slug: 'cognitive' },
+              { label: 'Sexual Health', icon: '/images/icon-sexual.png', slug: 'sexual-health' },
+              { label: 'Immune Support', icon: '/images/icon-immune.png', slug: 'immune' },
+              { label: 'Ancillaries', icon: '/images/icon-ancillaries.png', slug: 'ancillaries' },
             ].map((cat) => (
               <Link
                 key={cat.slug}
                 href={`/shop?category=${cat.slug}`}
                 className="flex flex-col items-center gap-3 group"
               >
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-navy flex items-center justify-center text-3xl sm:text-4xl shadow-lg group-hover:bg-navy-light group-hover:scale-105 transition-all duration-300">
-                  {cat.icon}
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shadow-lg group-hover:scale-105 transition-all duration-300">
+                  <Image
+                    src={cat.icon}
+                    alt={cat.label}
+                    width={112}
+                    height={112}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <span className="text-xs sm:text-sm font-semibold text-navy text-center leading-tight">
                   {cat.label}
