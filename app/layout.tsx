@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { CartProvider } from '@/components/cart/CartProvider';
 import CartDrawer from '@/components/cart/CartDrawer';
+import AgeVerificationGate from '@/components/ui/AgeVerificationGate';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -13,56 +14,55 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://peptidelifewellness.com'),
+  metadataBase: new URL('https://novapurelabs.ca'),
   title: {
-    template: '%s | Peptide Life Wellness',
-    default: 'Peptide Life Wellness | Peptide Education, Calculator & Tracker App',
+    template: '%s | NovaPure Labs',
+    default: 'NovaPure Labs | Lab-Tested Research Peptides, 99%+ Purity',
   },
   description:
-    'Peptide education, daily wellness tracking, reminders, and safety-first guidance. Free peptide calculator, wellness quiz, and installable tracker app.',
+    'Pharmaceutical-grade research peptides, independently verified for 99%+ purity. COA included with every order. Free peptide calculator, research guides, and wellness tracker.',
   keywords: [
-    'peptide wellness',
-    'peptide calculator',
-    'peptide tracker',
+    'research peptides Canada',
     'buy peptides Canada',
-    'research peptides',
-    'peptide shop',
-    'peptide store Canada',
-    'peptide safety Canada',
-    'peptide education',
-    'peptide guide',
-    'peptide wellness quiz',
-    'peptide calculator Canada',
+    'lab-tested peptides',
+    'pharmaceutical grade peptides',
+    'peptide purity testing',
+    'BPC-157 Canada',
+    'semaglutide Canada',
+    'peptide calculator',
+    'peptide COA',
+    'HPLC tested peptides',
+    'NovaPure Labs',
     'peptide reconstitution calculator',
-    'BPC-157',
-    'semaglutide',
+    'TB-500',
+    'ipamorelin',
   ],
-  authors: [{ name: 'Peptide Life Wellness' }],
-  creator: 'Peptide Life Wellness',
-  publisher: 'Peptide Life Wellness',
+  authors: [{ name: 'NovaPure Labs' }],
+  creator: 'NovaPure Labs',
+  publisher: 'NovaPure Labs',
   openGraph: {
     type: 'website',
     locale: 'en_CA',
-    url: 'https://peptidelifewellness.com',
-    siteName: 'Peptide Life Wellness',
-    title: 'Peptide Life Wellness | Peptide Education, Calculator & Tracker App',
+    url: 'https://novapurelabs.ca',
+    siteName: 'NovaPure Labs',
+    title: 'NovaPure Labs | Lab-Tested Research Peptides, 99%+ Purity',
     description:
-      'Peptide education, daily wellness tracking, reminders, and safety-first guidance. Free peptide calculator, wellness quiz, and installable tracker app.',
+      'Pharmaceutical-grade research peptides, independently verified for 99%+ purity. COA included with every order.',
     images: [
       {
-        url: '/images/wide banner logo.png',
+        url: '/images/novapure-banner.png',
         width: 1200,
         height: 630,
-        alt: 'Peptide Life Wellness',
+        alt: 'NovaPure Labs',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Peptide Life Wellness | Peptide Education, Calculator & Tracker App',
+    title: 'NovaPure Labs | Lab-Tested Research Peptides, 99%+ Purity',
     description:
-      'Peptide education, daily wellness tracking, reminders, and safety-first guidance.',
-    images: ['/images/wide banner logo.png'],
+      'Pharmaceutical-grade research peptides, independently verified for 99%+ purity.',
+    images: ['/images/novapure-banner.png'],
   },
   robots: {
     index: true,
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://peptidelifewellness.com',
+    canonical: 'https://novapurelabs.ca',
   },
 };
 
@@ -95,11 +95,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'Peptide Life Wellness',
-              url: 'https://peptidelifewellness.com',
-              logo: 'https://peptidelifewellness.com/images/square logo.png',
+              name: 'NovaPure Labs',
+              url: 'https://novapurelabs.ca',
+              logo: 'https://novapurelabs.ca/images/novapure-circle.png',
               description:
-                'Peptide education, wellness tracking, and safety-first guidance for informed consumers.',
+                'Pharmaceutical-grade research peptides. Third-party tested, 99%+ purity. COA included with every order.',
               sameAs: [],
             }),
           }}
@@ -111,17 +111,18 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
-              name: 'Peptide Life Wellness',
-              url: 'https://peptidelifewellness.com',
+              name: 'NovaPure Labs',
+              url: 'https://novapurelabs.ca',
               potentialAction: {
                 '@type': 'SearchAction',
-                target: 'https://peptidelifewellness.com/guides?q={search_term_string}',
+                target: 'https://novapurelabs.ca/guides?q={search_term_string}',
                 'query-input': 'required name=search_term_string',
               },
             }),
           }}
         />
         <CartProvider>
+          <AgeVerificationGate />
           <Header />
           <CartDrawer />
           <main className="min-h-screen">{children}</main>

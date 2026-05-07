@@ -6,19 +6,19 @@ import {
   CalendarCheck,
   BookOpen,
   ShieldCheck,
-  ClipboardList,
   ArrowRight,
   Sparkles,
-  TrendingUp,
-  Download,
-  Smartphone,
   ShoppingBag,
-  Star,
   ShoppingCart,
   Award,
   Truck,
   Beaker,
   CheckCircle,
+  FileCheck,
+  Download,
+  Star,
+  Package,
+  ClipboardList,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import MolecularBackground from '@/components/ui/MolecularBackground';
@@ -26,67 +26,70 @@ import { products } from '@/lib/data/products';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Peptide Life Wellness | Research Peptides, Education & Tracker App',
+    absolute: 'NovaPure Labs | Lab-Tested Research Peptides, 99%+ Purity',
   },
   description:
-    'Premium research peptides, educational tools, daily wellness tracking, and safety-first guidance. Free peptide calculator, wellness quiz, and installable tracker app.',
+    'Pharmaceutical-grade research peptides, independently verified for 99%+ purity. COA included with every order. Free peptide calculator, wellness quiz, and daily tracker.',
 };
 
-const featuredSlugs = ['bpc-157', 'tb-500', 'kpv', 'ipamorelin'];
+const featuredSlugs = ['bpc-157', 'tb-500', 'semaglutide', 'ipamorelin'];
 const featuredProducts = products.filter((p) => featuredSlugs.includes(p.slug));
 
 export default function HomePage() {
   return (
     <>
       {/* ==========================================
-          HERO SECTION
+          HERO — Trust-First Design
           ========================================== */}
       <section className="relative overflow-hidden bg-white" id="hero">
         <MolecularBackground density="normal" />
         <div className="hero-gradient-overlay absolute inset-0" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6 sm:py-16 lg:py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-            {/* Left — Text */}
-            <div className="animate-fade-in-up">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy leading-tight tracking-tight">
-                Science-Driven{' '}
-                <span className="text-gradient-brand">Wellness</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-0 sm:py-16 lg:py-24 relative z-10">
+          {/* Mobile: Stack vertically, bottles first for maximum impact */}
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+            {/* Text — On mobile appears second (order-2), on desktop left (order-1) */}
+            <div className="animate-fade-in-up order-2 lg:order-1 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-green-soft text-green text-xs font-bold px-3 py-1.5 rounded-full mb-4">
+                <CheckCircle size={12} /> Every Batch Third-Party Verified
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-[1.1] tracking-tight">
+                99.5% Purity.{' '}
+                <span className="text-gradient-brand">Verified.</span>
               </h1>
-              <p className="mt-4 text-base text-gray leading-relaxed">
-                Premium, lab-tested peptides formulated to support your health, performance, and vitality.
+              <p className="mt-4 text-base sm:text-lg text-gray leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Pharmaceutical-grade research peptides backed by independent HPLC testing and a
+                Certificate of Analysis with every order.
               </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <Link
                   href="/shop"
-                  className="inline-flex items-center justify-center gap-2 bg-navy text-white px-7 py-4 rounded-full text-base font-semibold hover:bg-navy-light transition-all duration-200 shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-navy-light transition-all duration-200 shadow-lg"
                   id="hero-cta-shop"
                 >
                   Shop Now <ArrowRight size={18} />
                 </Link>
                 <Link
-                  href="/guides"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-navy px-7 py-4 rounded-full text-base font-semibold hover:bg-silver transition-all duration-200 border-2 border-navy"
-                  id="hero-cta-learn"
+                  href="/lab-testing"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-full text-base font-semibold hover:bg-silver transition-all duration-200 border-2 border-navy"
+                  id="hero-cta-lab"
                 >
-                  Learn More
+                  <FileCheck size={18} /> View Lab Results
                 </Link>
               </div>
             </div>
 
-            {/* Right — Hero Bottles (2 on mobile, 4 on desktop) — LARGE */}
-            <div className="flex items-end justify-center gap-4 sm:gap-6 animate-fade-in">
-              {/* Mobile: show only 2 big bottles */}
-              <div className="sm:hidden flex items-end justify-center gap-6">
-                <Image src="/images/recoverybottle1.png" alt="BPC-157" width={200} height={300} className="w-[140px] h-auto drop-shadow-xl animate-fade-in-up" />
-                <Image src="/images/recoverybottle2.png" alt="TB-500" width={200} height={300} className="w-[140px] h-auto drop-shadow-xl animate-fade-in-up delay-100" />
+            {/* Hero Bottle — On mobile: ONE full-width bottle, edge-to-edge */}
+            <div className="order-1 lg:order-2 animate-fade-in w-full">
+              {/* Mobile: Full-width single bottle — premium pharmaceutical aesthetic */}
+              <div className="sm:hidden flex items-center justify-center -mx-4 pt-2 pb-4">
+                <Image src="/images/recoverybottle1.png" alt="BPC-157 Research Peptide" width={500} height={750} className="w-full max-w-[85vw] h-auto drop-shadow-2xl animate-fade-in-up" priority />
               </div>
-              {/* Desktop: show 4 bottles */}
+              {/* Desktop: 3 bottles, clean composition */}
               <div className="hidden sm:flex items-end justify-center gap-4 lg:gap-6">
-                <Image src="/images/recoverybottle1.png" alt="BPC-157" width={160} height={260} className="w-[120px] lg:w-[150px] h-auto drop-shadow-xl animate-fade-in-up" />
-                <Image src="/images/recoverybottle2.png" alt="TB-500" width={160} height={260} className="w-[120px] lg:w-[150px] h-auto drop-shadow-xl animate-fade-in-up delay-100" />
-                <Image src="/images/musclebottle1.png" alt="Ipamorelin" width={160} height={260} className="w-[120px] lg:w-[150px] h-auto drop-shadow-xl animate-fade-in-up delay-200" />
-                <Image src="/images/samplebottle1.png" alt="KPV" width={160} height={260} className="w-[120px] lg:w-[150px] h-auto drop-shadow-xl animate-fade-in-up delay-300" />
+                <Image src="/images/recoverybottle1.png" alt="BPC-157" width={220} height={340} className="w-[140px] lg:w-[180px] h-auto drop-shadow-2xl animate-fade-in-up" priority />
+                <Image src="/images/musclebottle1.png" alt="CJC-1295" width={220} height={340} className="w-[140px] lg:w-[180px] h-auto drop-shadow-2xl animate-fade-in-up delay-100" priority />
+                <Image src="/images/samplebottle2.png" alt="Semaglutide" width={220} height={340} className="w-[140px] lg:w-[180px] h-auto drop-shadow-2xl animate-fade-in-up delay-200" />
               </div>
             </div>
           </div>
@@ -94,23 +97,25 @@ export default function HomePage() {
       </section>
 
       {/* ==========================================
-          TRUST BADGES — 2×2 grid on mobile
+          TRUST BAR — Clean horizontal badges
           ========================================== */}
-      <section className="bg-white border-y border-border py-6 sm:py-8" id="trust-badges">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+      <section className="bg-navy py-5 sm:py-6" id="trust-bar">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { icon: Beaker, label: 'Lab Tested', desc: 'Every batch third-party tested for purity and potency.' },
-              { icon: Award, label: 'Premium Quality', desc: 'Sourced from trusted manufacturers.' },
-              { icon: ShieldCheck, label: 'Clean Formulas', desc: 'No unnecessary additives.' },
-              { icon: Truck, label: 'Fast Shipping', desc: 'Quick, discreet, and reliable.' },
+              { icon: Beaker, label: 'HPLC Tested', desc: 'Every batch verified' },
+              { icon: FileCheck, label: 'COA Included', desc: 'With every order' },
+              { icon: Award, label: '99%+ Purity', desc: 'Pharmaceutical grade' },
+              { icon: Truck, label: 'Canadian Shipped', desc: 'Fast & discreet' },
             ].map((badge) => (
-              <div key={badge.label} className="flex flex-col items-center text-center gap-2 py-2">
-                <div className="w-14 h-14 rounded-2xl bg-blue-soft flex items-center justify-center">
-                  <badge.icon size={26} className="text-navy" />
+              <div key={badge.label} className="flex items-center gap-3 text-white">
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                  <badge.icon size={20} className="text-green" />
                 </div>
-                <p className="text-sm font-bold text-navy">{badge.label}</p>
-                <p className="text-xs text-gray leading-snug hidden sm:block">{badge.desc}</p>
+                <div>
+                  <p className="text-xs font-bold text-white">{badge.label}</p>
+                  <p className="text-[10px] text-white/50">{badge.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -118,127 +123,183 @@ export default function HomePage() {
       </section>
 
       {/* ==========================================
-          FEATURED PRODUCTS — 2 per row, big bottles
+          LAB RESULTS PREVIEW — Trust Proof
           ========================================== */}
-      <section className="py-12 sm:py-16 bg-silver relative" id="featured-products">
-        <div className="max-w-3xl lg:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">Featured Peptides</h2>
-            <p className="mt-2 text-sm text-gray">Science-backed peptides for targeted wellness and performance.</p>
+      <section className="py-12 sm:py-16 bg-white relative" id="lab-preview">
+        <MolecularBackground density="sparse" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="text-xs font-bold text-blue uppercase tracking-wider">Transparency</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-navy mt-2">
+                Don&apos;t Take Our Word For It
+              </h2>
+              <p className="mt-3 text-gray leading-relaxed">
+                Every product comes with a batch-specific Certificate of Analysis verifying purity,
+                identity, and potency through independent HPLC and mass spectrometry testing.
+              </p>
+              <div className="mt-6 space-y-3">
+                {[
+                  'Independent third-party laboratory testing',
+                  'HPLC chromatography for purity verification',
+                  'Mass spectrometry for compound identity',
+                  'Batch-specific COA downloadable for every product',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3 text-sm text-gray-dark">
+                    <CheckCircle size={16} className="text-green shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <Link
+                href="/lab-testing"
+                className="mt-6 inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-navy-light transition-all shadow-md"
+              >
+                View All Lab Results <ArrowRight size={16} />
+              </Link>
+            </div>
+            <div className="bg-silver rounded-3xl border border-border p-4 sm:p-6">
+              <Image
+                src="/images/infographics/quality-process.png"
+                alt="Our 4-step quality assurance process"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
+          FEATURED PRODUCTS — With Purity Badges
+          ========================================== */}
+      <section className="py-14 sm:py-20 bg-silver relative" id="featured-products">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy">Featured Peptides</h2>
+            <p className="mt-2 text-base text-gray">Lab-verified, pharmaceutical-grade research compounds.</p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {featuredProducts.map((product) => (
               <Link
                 key={product.slug}
                 href={`/shop/${product.slug}`}
-                className="group bg-white rounded-2xl p-4 sm:p-5 border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
               >
-                {/* Product Image — LARGE, fills the card */}
-                <div className="flex justify-center py-3 sm:py-4 bg-silver/50 rounded-xl mb-3">
+                {/* Purity Badge */}
+                <div className="flex justify-between items-start px-3 pt-3 sm:px-4 sm:pt-4">
+                  {product.badge && (
+                    <span className="bg-green text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full">
+                      {product.badge}
+                    </span>
+                  )}
+                  {product.purity && (
+                    <span className="bg-green-soft text-green text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 ml-auto">
+                      <CheckCircle size={10} /> {product.purity}
+                    </span>
+                  )}
+                </div>
+
+                {/* Product Image — Fill card width */}
+                <div className="flex justify-center items-end px-1 pt-4 pb-2 sm:px-2 sm:pt-6 sm:pb-3 min-h-[220px] sm:min-h-[280px] bg-gradient-to-b from-silver/30 to-transparent">
                   <Image
                     src={product.image}
                     alt={product.name}
-                    width={200}
-                    height={280}
-                    className="w-[120px] sm:w-[140px] lg:w-[160px] h-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300"
+                    width={400}
+                    height={600}
+                    className="w-full h-auto max-h-[220px] sm:max-h-[280px] object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
 
                 {/* Product Info */}
-                <h3 className="text-sm sm:text-base font-bold text-navy leading-tight">{product.name}</h3>
-                <p className="text-xs text-blue font-semibold mt-0.5">{product.volume}</p>
+                <div className="px-3 pb-3 sm:px-4 sm:pb-4 flex flex-col flex-1">
+                  <h3 className="text-sm sm:text-lg font-bold text-navy leading-tight">{product.name}</h3>
+                  <p className="text-xs sm:text-sm text-blue font-semibold mt-0.5">{product.volume}</p>
 
-                {/* Bullet features */}
-                <ul className="mt-2 space-y-1 flex-1">
-                  {product.details.slice(0, 2).map((d) => (
-                    <li key={d} className="flex items-start gap-1.5 text-[11px] text-gray leading-snug">
-                      <CheckCircle size={12} className="text-green shrink-0 mt-0.5" />
-                      {d}
+                  {/* Features */}
+                  <ul className="mt-2 sm:mt-3 space-y-1.5 flex-1">
+                    {product.details.slice(0, 2).map((d) => (
+                      <li key={d} className="flex items-start gap-1.5 text-[11px] sm:text-xs text-gray leading-snug">
+                        <CheckCircle size={12} className="text-green shrink-0 mt-0.5" />
+                        {d}
+                      </li>
+                    ))}
+                    <li className="flex items-start gap-1.5 text-[11px] sm:text-xs text-gray leading-snug">
+                      <FileCheck size={12} className="text-blue shrink-0 mt-0.5" />
+                      COA Included
                     </li>
-                  ))}
-                  <li className="flex items-start gap-1.5 text-[11px] text-gray leading-snug">
-                    <CheckCircle size={12} className="text-green shrink-0 mt-0.5" />
-                    Lab Tested
-                  </li>
-                </ul>
+                  </ul>
 
-                {/* Price + CTA */}
-                <p className="mt-3 text-lg font-bold text-navy">${product.price.toFixed(2)}</p>
-                <div className="mt-2 flex items-center justify-center gap-1.5 bg-navy text-white text-xs font-semibold px-4 py-2.5 rounded-full group-hover:bg-navy-light transition-colors w-full">
-                  <ShoppingCart size={14} />
-                  Shop Now
+                  {/* Price + CTA */}
+                  <p className="mt-3 text-xl sm:text-2xl font-bold text-navy">${product.price.toFixed(2)}</p>
+                  <div className="mt-2 flex items-center justify-center gap-2 bg-navy text-white text-xs sm:text-sm font-semibold px-4 py-3 sm:py-3.5 rounded-full group-hover:bg-navy-light transition-colors w-full">
+                    <ShoppingCart size={16} />
+                    Shop Now
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
 
-          <div className="text-center mt-8">
-            <Link href="/shop" className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:text-blue transition-colors">
-              View All Products <ArrowRight size={16} />
+          <div className="text-center mt-10">
+            <Link href="/shop" className="inline-flex items-center gap-2 bg-white text-navy border-2 border-navy font-semibold text-sm sm:text-base px-8 py-3.5 rounded-full hover:bg-silver transition-colors">
+              View All Products <ArrowRight size={18} />
             </Link>
           </div>
         </div>
       </section>
 
       {/* ==========================================
-          BRAND VALUES — Science. Balance. Vitality.
+          HOW IT WORKS — Process Flow
           ========================================== */}
-      <section className="py-12 sm:py-16 bg-white relative" id="brand-values">
+      <section className="py-12 sm:py-16 bg-white relative" id="how-it-works">
         <MolecularBackground density="sparse" />
-        <div className="max-w-3xl lg:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-silver rounded-3xl p-6 sm:p-10 border border-border">
-            <div className="flex flex-col items-center text-center gap-4 mb-8">
-              <Image
-                src="/images/square logo.png"
-                alt="Peptide Life Wellness"
-                width={140}
-                height={140}
-                className="drop-shadow-md"
-              />
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-navy">
-                  Science. Balance. <span className="text-green">Vitality.</span>
-                </h2>
-                <p className="mt-3 text-sm text-gray leading-relaxed max-w-lg mx-auto">
-                  At Peptide Life Wellness, we believe true wellness is built on science, balance, and premium quality. Our peptides are meticulously sourced, lab-tested, and designed to help you live at your best.
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-4 sm:gap-8">
-              {[
-                { icon: FlaskConical, title: 'Science-Driven', desc: 'Cutting-edge research to deliver effective, evidence-based solutions.' },
-                { icon: Sparkles, title: 'Balance', desc: 'A lifestyle of harmony for body and mind.' },
-                { icon: Star, title: 'Vitality', desc: 'Unlock your potential and thrive with confidence.' },
-              ].map((item) => (
-                <div key={item.title} className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-soft flex items-center justify-center mx-auto mb-2">
-                    <item.icon size={22} className="text-navy" />
-                  </div>
-                  <h3 className="text-xs sm:text-sm font-bold text-navy">{item.title}</h3>
-                  <p className="text-[10px] sm:text-xs text-gray mt-1 leading-snug hidden sm:block">{item.desc}</p>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">How It Works</h2>
+            <p className="mt-2 text-sm text-gray">From order to delivery — simple, transparent, verified.</p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {[
+              { step: '01', icon: ShoppingBag, title: 'Browse & Order', desc: 'Choose from our lab-tested catalog of pharmaceutical-grade peptides.' },
+              { step: '02', icon: FlaskConical, title: 'Batch Verified', desc: 'Every product is third-party tested with HPLC and mass spectrometry.' },
+              { step: '03', icon: FileCheck, title: 'COA Included', desc: 'Receive a Certificate of Analysis documenting purity and identity.' },
+              { step: '04', icon: Package, title: 'Shipped Discreetly', desc: 'Fast, secure Canadian shipping with tracking provided.' },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="w-14 h-14 rounded-2xl bg-blue-soft flex items-center justify-center mx-auto mb-3 relative">
+                  <item.icon size={24} className="text-navy" />
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-navy text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                    {item.step}
+                  </span>
                 </div>
-              ))}
-            </div>
+                <h3 className="text-sm font-bold text-navy">{item.title}</h3>
+                <p className="text-xs text-gray mt-1 leading-snug">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ==========================================
-          FREE TOOLS — 2 per row on mobile, 3 desktop
+          FREE TOOLS — Unique Differentiators
           ========================================== */}
       <section className="py-12 sm:py-16 bg-silver relative" id="tools-section">
         <div className="max-w-3xl lg:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">Free Wellness Tools</h2>
-            <p className="mt-2 text-sm text-gray">Education and tracking tools to support your journey.</p>
+            <span className="text-xs font-bold text-blue uppercase tracking-wider">Exclusive</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy mt-2">Free Research Tools</h2>
+            <p className="mt-2 text-sm text-gray">Tools no other supplier offers. Because informed decisions matter.</p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { icon: ClipboardList, title: 'Wellness Quiz', desc: 'Find your personal wellness focus.', href: '/quiz', color: 'bg-blue-soft', iconColor: 'text-navy' },
-              { icon: Calculator, title: 'Calculator', desc: 'Understand units and concentration.', href: '/calculator', color: 'bg-green-soft', iconColor: 'text-green' },
-              { icon: CalendarCheck, title: 'Daily Tracker', desc: 'Log and track wellness patterns.', href: '/tracker', color: 'bg-blue-soft', iconColor: 'text-blue' },
-              { icon: BookOpen, title: 'Guides', desc: 'In-depth peptide education.', href: '/guides', color: 'bg-green-soft', iconColor: 'text-green' },
+              { icon: ClipboardList, title: 'Wellness Quiz', desc: 'Find your personal research focus.', href: '/quiz', color: 'bg-blue-soft', iconColor: 'text-navy' },
+              { icon: Calculator, title: 'Peptide Calculator', desc: 'Reconstitution & dosing math.', href: '/calculator', color: 'bg-green-soft', iconColor: 'text-green' },
+              { icon: CalendarCheck, title: 'Daily Tracker', desc: 'Log and track research patterns.', href: '/tracker', color: 'bg-blue-soft', iconColor: 'text-blue' },
+              { icon: BookOpen, title: 'Research Guides', desc: 'In-depth peptide education.', href: '/guides', color: 'bg-green-soft', iconColor: 'text-green' },
             ].map((tool) => (
               <Link
                 key={tool.title}
@@ -267,7 +328,7 @@ export default function HomePage() {
         <div className="max-w-3xl lg:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">Peptide Education</h2>
-            <p className="mt-2 text-sm text-gray">Safety-first articles and wellness guides.</p>
+            <p className="mt-2 text-sm text-gray">Science-first guides and safety information.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
@@ -306,9 +367,9 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white rounded-2xl p-6 sm:p-8 border border-border">
             <ShieldCheck size={32} className="text-green mx-auto mb-3" />
-            <h2 className="text-lg sm:text-xl font-bold text-navy">Safety-First Education</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-navy">Safety-First. Always.</h2>
             <p className="mt-3 text-xs sm:text-sm text-gray leading-relaxed">
-              Peptide Life Wellness provides educational content and wellness tracking tools only. Always speak with a licensed healthcare professional before using prescription, injectable, or regulated health products.
+              NovaPure Labs provides educational content, research tools, and lab-tested research compounds. All products are for research purposes only. Always speak with a licensed healthcare professional before using prescription, injectable, or regulated health products.
             </p>
             <Link
               href="/safety-canada"
@@ -329,8 +390,8 @@ export default function HomePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebApplication',
-            name: 'Peptide Life Wellness Tracker',
-            url: 'https://peptidelifewellness.com/tracker',
+            name: 'NovaPure Labs Tracker',
+            url: 'https://novapurelabs.ca/tracker',
             description: 'Free peptide wellness tracker app with daily logs, reminders, and wellness pattern tracking.',
             applicationCategory: 'HealthApplication',
             operatingSystem: 'Web',

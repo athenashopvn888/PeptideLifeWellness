@@ -2,8 +2,8 @@ import { Mail, MapPin, Send } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Peptide Life Wellness',
-  description: 'Get in touch with Peptide Life Wellness. Questions about our educational content, wellness tracker, or peptide calculator? We are here to help.',
+  title: 'Contact NovaPure Labs',
+  description: 'Get in touch with NovaPure Labs. Questions about our educational content, wellness tracker, or peptide calculator? We are here to help.',
 };
 
 export default function ContactPage() {
@@ -49,7 +49,7 @@ export default function ContactPage() {
             <div className="bg-white rounded-2xl p-5 border border-border">
               <Mail size={20} className="text-blue mb-2" />
               <h3 className="font-semibold text-navy text-sm">Email</h3>
-              <p className="text-sm text-gray mt-1">hello@peptidelifewellness.com</p>
+              <p className="text-sm text-gray mt-1">info@novapurelabs.ca</p>
             </div>
             <div className="bg-white rounded-2xl p-5 border border-border">
               <MapPin size={20} className="text-blue mb-2" />

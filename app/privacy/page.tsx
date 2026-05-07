@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Peptide Life Wellness privacy policy. Learn how we collect, use, and protect your personal information.',
+  description: 'NovaPure Labs privacy policy. Learn how we collect, use, and protect your personal information.',
 };
 
 export default function PrivacyPage() {
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
         <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-border space-y-6">
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Information We Collect</h2>
-            <p className="text-gray leading-relaxed mb-3">When you use Peptide Life Wellness, we may collect the following information:</p>
+            <p className="text-gray leading-relaxed mb-3">When you use NovaPure Labs, we may collect the following information:</p>
             <ul className="list-disc pl-6 space-y-2 text-sm text-gray">
               <li><strong className="text-navy">Account Information:</strong> Email address and name when you create an account</li>
               <li><strong className="text-navy">Quiz Responses:</strong> Your answers to the wellness quiz, used to provide personalized educational focus</li>
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
           </div>
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Contact</h2>
-            <p className="text-gray leading-relaxed">For privacy-related questions, contact us at hello@peptidelifewellness.com.</p>
+            <p className="text-gray leading-relaxed">For privacy-related questions, contact us at info@novapurelabs.ca.</p>
           </div>
         </div>
       </div>

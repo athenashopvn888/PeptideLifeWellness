@@ -20,12 +20,12 @@ export async function generateMetadata({
     title: `${product.name} | ${product.subtitle}`,
     description: product.description,
     openGraph: {
-      title: `${product.name} - ${product.subtitle} | Peptide Life Wellness`,
+      title: `${product.name} - ${product.subtitle} | NovaPure Labs`,
       description: product.description,
       images: [{ url: product.image, width: 600, height: 800, alt: product.name }],
     },
     alternates: {
-      canonical: `https://peptidelifewellness.com/shop/${slug}`,
+      canonical: `https://novapurelabs.ca/shop/${slug}`,
     },
   };
 }
@@ -56,8 +56,8 @@ export default async function ProductPage({
             '@type': 'Product',
             name: product.name,
             description: product.description,
-            image: `https://peptidelifewellness.com${product.image}`,
-            brand: { '@type': 'Brand', name: 'Peptide Life Wellness' },
+            image: `https://novapurelabs.ca${product.image}`,
+            brand: { '@type': 'Brand', name: 'NovaPure Labs' },
             offers: {
               '@type': 'Offer',
               price: product.price.toFixed(2),
@@ -65,7 +65,7 @@ export default async function ProductPage({
               availability: product.inStock
                 ? 'https://schema.org/InStock'
                 : 'https://schema.org/OutOfStock',
-              url: `https://peptidelifewellness.com/shop/${product.slug}`,
+              url: `https://novapurelabs.ca/shop/${product.slug}`,
             },
             aggregateRating: {
               '@type': 'AggregateRating',

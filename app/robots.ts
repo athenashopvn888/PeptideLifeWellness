@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/app/', '/admin/', '/auth/'],
       },
     ],
-    sitemap: 'https://peptidelifewellness.com/sitemap.xml',
+    sitemap: 'https://novapurelabs.ca/sitemap.xml',
   };
 }

@@ -10,11 +10,10 @@ import { useCart } from '@/components/cart/CartProvider';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/shop', label: 'Shop' },
-  { href: '/quiz', label: 'Quiz' },
+  { href: '/lab-testing', label: 'Lab Testing' },
   { href: '/calculator', label: 'Calculator' },
-  { href: '/tracker', label: 'Tracker' },
   { href: '/guides', label: 'Guides' },
-  { href: '/safety-canada', label: 'Safety' },
+  { href: '/about', label: 'About' },
 ];
 
 export default function Header() {
@@ -27,20 +26,20 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0" id="header-logo">
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0" id="header-logo">
             <Image
-              src="/images/square logo.png"
-              alt="Peptide Life Wellness"
-              width={56}
-              height={56}
-              className="rounded-lg"
+              src="/images/novapure-circle.png"
+              alt="NovaPure Labs"
+              width={72}
+              height={72}
+              className="rounded-full w-12 h-12 sm:w-16 sm:h-16"
             />
             <div className="flex flex-col">
-              <span className="text-navy font-bold text-base sm:text-lg leading-tight">
-                Peptide Life Wellness
+              <span className="text-navy font-bold text-lg sm:text-xl leading-tight">
+                NovaPure Labs
               </span>
-              <span className="text-[10px] text-gray tracking-widest uppercase">
-                Science. Balance. Vitality.
+              <span className="text-[10px] sm:text-[11px] text-gray tracking-widest uppercase">
+                Precision Peptides. Verified Purity.
               </span>
             </div>
           </Link>

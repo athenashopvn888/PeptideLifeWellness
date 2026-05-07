@@ -27,10 +27,10 @@ export async function generateMetadata({
       description: article.seoDescription,
       type: 'article',
       publishedTime: article.publishedDate,
-      authors: ['Peptide Life Wellness'],
+      authors: ['NovaPure Labs'],
     },
     alternates: {
-      canonical: `https://peptidelifewellness.com/guides/${slug}`,
+      canonical: `https://novapurelabs.ca/guides/${slug}`,
     },
   };
 }
@@ -200,17 +200,17 @@ export default async function ArticlePage({
             datePublished: article.publishedDate,
             author: {
               '@type': 'Organization',
-              name: 'Peptide Life Wellness',
+              name: 'NovaPure Labs',
             },
             publisher: {
               '@type': 'Organization',
-              name: 'Peptide Life Wellness',
+              name: 'NovaPure Labs',
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://peptidelifewellness.com/images/square logo.png',
+                url: 'https://novapurelabs.ca/images/novapure-circle.png',
               },
             },
-            mainEntityOfPage: `https://peptidelifewellness.com/guides/${slug}`,
+            mainEntityOfPage: `https://novapurelabs.ca/guides/${slug}`,
           }),
         }}
       />

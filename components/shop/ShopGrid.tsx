@@ -55,13 +55,13 @@ export default function ShopGrid() {
             )}
 
             {/* Image */}
-            <Link href={`/shop/${product.slug}`} className="block relative bg-gradient-to-b from-silver to-white p-4 sm:p-6 aspect-square flex items-center justify-center">
+            <Link href={`/shop/${product.slug}`} className="block relative bg-gradient-to-b from-silver to-white p-2 sm:p-3 flex items-center justify-center min-h-[220px] sm:min-h-[300px]">
               <Image
                 src={product.image}
                 alt={product.name}
-                width={200}
-                height={280}
-                className="object-contain w-full h-full max-h-[200px] group-hover:scale-105 transition-transform duration-300"
+                width={400}
+                height={600}
+                className="object-contain w-full h-full max-h-[200px] sm:max-h-[270px] group-hover:scale-105 transition-transform duration-300"
               />
               {/* Quick View overlay */}
               <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -76,27 +76,34 @@ export default function ShopGrid() {
               {/* Category */}
               <span className="text-xs font-medium text-blue">{product.category}</span>
 
-              {/* Rating */}
-              <div className="flex items-center gap-1 mt-1">
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star
-                      key={s}
-                      size={12}
-                      className={s <= Math.round(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-light'}
-                    />
-                  ))}
+              {/* Rating or Purity */}
+              {product.reviewCount > 0 ? (
+                <div className="flex items-center gap-1 mt-1">
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <Star
+                        key={s}
+                        size={12}
+                        className={s <= Math.round(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-light'}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-xs text-gray">({product.reviewCount})</span>
                 </div>
-                <span className="text-xs text-gray">({product.reviewCount})</span>
-              </div>
+              ) : product.purity ? (
+                <div className="flex items-center gap-1 mt-1">
+                  <span className="text-xs font-semibold text-green">{product.purity} Pure</span>
+                  <span className="text-xs text-gray">· HPLC Verified</span>
+                </div>
+              ) : null}
 
               {/* Name */}
               <Link href={`/shop/${product.slug}`}>
-                <h3 className="text-sm font-semibold text-navy mt-1.5 group-hover:text-blue transition-colors leading-snug line-clamp-1">
+                <h3 className="text-sm sm:text-base font-semibold text-navy mt-1.5 group-hover:text-blue transition-colors leading-snug line-clamp-1">
                   {product.name}
                 </h3>
               </Link>
-              <p className="text-xs text-gray mt-0.5 line-clamp-1">{product.subtitle}</p>
+              <p className="text-xs sm:text-sm text-gray mt-0.5 line-clamp-1">{product.subtitle}</p>
 
               {/* Price + Cart */}
               <div className="flex items-end justify-between mt-3">
@@ -106,15 +113,15 @@ export default function ShopGrid() {
                       ${product.comparePrice.toFixed(2)}
                     </span>
                   )}
-                  <span className="text-lg font-bold text-navy">${product.price.toFixed(2)}</span>
+                  <span className="text-lg sm:text-xl font-bold text-navy">${product.price.toFixed(2)}</span>
                 </div>
                 <button
                   onClick={() => addItem(product)}
-                  className="w-9 h-9 rounded-xl bg-blue text-white flex items-center justify-center hover:bg-blue-dark transition-colors shadow-sm"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue text-white flex items-center justify-center hover:bg-blue-dark transition-colors shadow-sm"
                   aria-label={`Add ${product.name} to cart`}
                   id={`add-cart-${product.slug}`}
                 >
-                  <ShoppingCart size={16} />
+                  <ShoppingCart size={18} />
                 </button>
               </div>
 

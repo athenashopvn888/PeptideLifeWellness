@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
-  description: 'Peptide Life Wellness terms of use. Review the terms and conditions for using our website, tools, and educational content.',
+  description: 'NovaPure Labs terms of use. Review the terms and conditions for using our website, tools, and educational content.',
 };
 
 export default function TermsPage() {
@@ -21,7 +21,7 @@ export default function TermsPage() {
         <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-border space-y-6">
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Acceptance of Terms</h2>
-            <p className="text-gray leading-relaxed">By accessing and using Peptide Life Wellness (peptidelifewellness.com), you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use the website.</p>
+            <p className="text-gray leading-relaxed">By accessing and using NovaPure Labs (novapurelabs.ca), you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use the website.</p>
           </div>
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Educational Purpose</h2>
@@ -44,7 +44,7 @@ export default function TermsPage() {
           </div>
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Intellectual Property</h2>
-            <p className="text-gray leading-relaxed">All content, design, and functionality on Peptide Life Wellness are the property of the site operators and are protected by copyright and intellectual property laws. You may not reproduce, distribute, or create derivative works without express permission.</p>
+            <p className="text-gray leading-relaxed">All content, design, and functionality on NovaPure Labs are the property of the site operators and are protected by copyright and intellectual property laws. You may not reproduce, distribute, or create derivative works without express permission.</p>
           </div>
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Calculator & Tracker Tools</h2>
@@ -52,7 +52,7 @@ export default function TermsPage() {
           </div>
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Limitation of Liability</h2>
-            <p className="text-gray leading-relaxed">Peptide Life Wellness shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the website or its content.</p>
+            <p className="text-gray leading-relaxed">NovaPure Labs shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the website or its content.</p>
           </div>
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Changes to Terms</h2>

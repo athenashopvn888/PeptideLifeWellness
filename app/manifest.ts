@@ -2,10 +2,10 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Peptide Life Wellness',
-    short_name: 'PLW Tracker',
+    name: 'NovaPure Labs',
+    short_name: 'NovaPure',
     description:
-      'Peptide education, daily wellness tracking, reminders, and safety-first guidance.',
+      'Lab-tested research peptides, 99%+ purity. Free peptide calculator, research guides, and wellness tracker.',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
@@ -14,17 +14,17 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['health', 'education', 'lifestyle'],
     icons: [
       {
-        src: '/images/square logo.png',
+        src: '/images/novapure-circle.png',
         sizes: '192x192',
         type: 'image/png',
       },
       {
-        src: '/images/square logo.png',
+        src: '/images/novapure-circle.png',
         sizes: '512x512',
         type: 'image/png',
       },
       {
-        src: '/images/square logo.png',
+        src: '/images/novapure-circle.png',
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable',

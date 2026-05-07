@@ -33,16 +33,16 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Image
-                src="/images/square logo.png"
-                alt="Peptide Life Wellness"
+                src="/images/novapure-circle.png"
+                alt="NovaPure Labs"
                 width={32}
                 height={32}
-                className="rounded-lg"
+                className="rounded-full"
               />
-              <span className="font-bold text-lg">PLW</span>
+              <span className="font-bold text-lg">NovaPure Labs</span>
             </Link>
             <p className="text-sm text-gray-light leading-relaxed">
-              Peptide education, wellness tracking, and safety-first guidance for informed consumers.
+              Pharmaceutical-grade research peptides. Third-party tested. COA with every order.
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="bg-white/5 rounded-xl p-6">
             <p className="text-xs text-white/50 leading-relaxed">
-              <strong className="text-white/70">Disclaimer:</strong> Peptide Life Wellness provides educational content and wellness tracking tools only. This platform does not provide medical advice, diagnosis, treatment, prescription guidance, or dosing instructions. Always speak with a licensed healthcare professional before using prescription, injectable, or regulated health products.
+              <strong className="text-white/70">Disclaimer:</strong> NovaPure Labs provides educational content, research tools, and lab-tested research compounds. This platform does not provide medical advice, diagnosis, treatment, prescription guidance, or dosing instructions. All products are for research purposes only. Always speak with a licensed healthcare professional before using prescription, injectable, or regulated health products.
             </p>
           </div>
         </div>
@@ -80,10 +80,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} Peptide Life Wellness. All rights reserved.
+            © {new Date().getFullYear()} NovaPure Labs. All rights reserved.
           </p>
           <p className="flex items-center gap-1 text-xs text-white/40">
-            Built with <Heart size={12} className="text-green" /> for wellness education
+            Built with <Heart size={12} className="text-green" /> for precision research
           </p>
         </div>
       </div>

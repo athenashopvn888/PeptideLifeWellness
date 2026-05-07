@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Browse our library of educational peptide guides covering beginner education, calculator guides, wellness tracking, safety, skin care, and healthy aging.',
   openGraph: {
-    title: 'Peptide Education Guide Library | Peptide Life Wellness',
+    title: 'Peptide Education Guide Library | NovaPure Labs',
     description:
       'Browse our library of educational peptide guides covering beginner education, calculator guides, wellness tracking, safety, and more.',
   },

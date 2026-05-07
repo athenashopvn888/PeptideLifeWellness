@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Wellness Journal | Track Your Daily Wellness Patterns',
-  description: 'Use the Peptide Life Wellness Journal to track sleep, energy, mood, recovery, and skin patterns over time. Build better wellness habits with daily logging.',
+  description: 'Use the NovaPure Labs Journal to track sleep, energy, mood, recovery, and skin patterns over time. Build better wellness habits with daily logging.',
 };
 
 export default function JournalPage() {
@@ -22,7 +22,7 @@ export default function JournalPage() {
         <div className="bg-white rounded-3xl p-8 shadow-lg border border-border space-y-8">
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">What Is the Wellness Journal?</h2>
-            <p className="text-gray leading-relaxed">The Wellness Journal is part of the Peptide Life Wellness Tracker. It allows you to log daily ratings for sleep, energy, mood, recovery, and skin — along with notes about your day. Over time, these entries create a picture of your wellness patterns.</p>
+            <p className="text-gray leading-relaxed">The Wellness Journal is part of the NovaPure Labs Tracker. It allows you to log daily ratings for sleep, energy, mood, recovery, and skin — along with notes about your day. Over time, these entries create a picture of your wellness patterns.</p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">

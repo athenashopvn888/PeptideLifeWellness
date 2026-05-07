@@ -126,7 +126,7 @@ export default function TrackerPage() {
       {/* WebApplication Schema */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'WebApplication',
-        name: 'Peptide Life Wellness Tracker', url: 'https://peptidelifewellness.com/tracker',
+        name: 'NovaPure Labs Tracker', url: 'https://novapurelabs.ca/tracker',
         description: 'Free peptide wellness tracker app with daily logs, reminders, and wellness pattern tracking.',
         applicationCategory: 'HealthApplication', operatingSystem: 'Web',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'CAD' },

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Disclaimer',
-  description: 'Peptide Life Wellness disclaimer. This platform provides educational content and wellness tracking tools only — not medical advice.',
+  description: 'NovaPure Labs disclaimer. This platform provides educational content and wellness tracking tools only — not medical advice.',
 };
 
 export default function DisclaimerPage() {
@@ -21,7 +21,7 @@ export default function DisclaimerPage() {
         <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-border prose-sm space-y-6">
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Educational Content Only</h2>
-            <p className="text-gray leading-relaxed">Peptide Life Wellness provides educational content and wellness tracking tools only. This platform does not provide medical advice, diagnosis, treatment, prescription guidance, or dosing instructions.</p>
+            <p className="text-gray leading-relaxed">NovaPure Labs provides educational content and wellness tracking tools only. This platform does not provide medical advice, diagnosis, treatment, prescription guidance, or dosing instructions.</p>
           </div>
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">No Medical Claims</h2>
@@ -45,7 +45,7 @@ export default function DisclaimerPage() {
           </div>
           <div>
             <h2 className="text-xl font-semibold text-navy mb-3">Limitation of Liability</h2>
-            <p className="text-gray leading-relaxed">Peptide Life Wellness and its operators shall not be held liable for any damages arising from the use of this website, its tools, or its content. Use of this website is at your own risk.</p>
+            <p className="text-gray leading-relaxed">NovaPure Labs and its operators shall not be held liable for any damages arising from the use of this website, its tools, or its content. Use of this website is at your own risk.</p>
           </div>
         </div>
       </div>

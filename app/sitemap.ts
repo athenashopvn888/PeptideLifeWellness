@@ -3,7 +3,7 @@ import { articles } from '@/lib/data/articles';
 import { products } from '@/lib/data/products';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://peptidelifewellness.com';
+  const baseUrl = 'https://novapurelabs.ca';
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },

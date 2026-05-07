@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '@/components/cart/CartProvider';
-import { Star, ShoppingCart, Minus, Plus, Shield, FlaskConical, Truck, ArrowLeft, Check } from 'lucide-react';
+import { Star, ShoppingCart, Minus, Plus, Shield, FlaskConical, Truck, ArrowLeft, Check, CheckCircle } from 'lucide-react';
 import type { Product } from '@/lib/data/products';
 
 export default function ProductDetail({ product, relatedProducts }: { product: Product; relatedProducts: Product[] }) {
@@ -28,13 +28,13 @@ export default function ProductDetail({ product, relatedProducts }: { product: P
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Image */}
-          <div className="bg-gradient-to-b from-silver to-white rounded-3xl p-8 sm:p-12 flex items-center justify-center">
+          <div className="bg-gradient-to-b from-silver to-white rounded-3xl p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[350px] sm:min-h-[450px] lg:min-h-[500px]">
             <Image
               src={product.image}
               alt={product.name}
-              width={320}
-              height={450}
-              className="object-contain max-h-[400px] animate-float"
+              width={400}
+              height={560}
+              className="object-contain max-h-[300px] sm:max-h-[380px] lg:max-h-[440px] w-auto animate-float"
               priority
             />
           </div>
@@ -43,22 +43,30 @@ export default function ProductDetail({ product, relatedProducts }: { product: P
           <div className="py-2">
             <span className="text-sm font-medium text-blue">{product.category}</span>
 
-            {/* Rating */}
-            <div className="flex items-center gap-2 mt-2">
-              <div className="flex">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={s} size={16} className={s <= Math.round(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-light'} />
-                ))}
+            {/* Rating or Purity */}
+            {product.reviewCount > 0 ? (
+              <div className="flex items-center gap-2 mt-2">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={s} size={16} className={s <= Math.round(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-light'} />
+                  ))}
+                </div>
+                <span className="text-sm text-gray">{product.rating} ({product.reviewCount} reviews)</span>
               </div>
-              <span className="text-sm text-gray">{product.rating} ({product.reviewCount} reviews)</span>
-            </div>
+            ) : product.purity ? (
+              <div className="flex items-center gap-2 mt-2">
+                <span className="inline-flex items-center gap-1.5 bg-green-soft text-green text-sm font-semibold px-3 py-1 rounded-full">
+                  <CheckCircle size={14} /> {product.purity} HPLC Verified
+                </span>
+              </div>
+            ) : null}
 
-            <h1 className="text-2xl sm:text-3xl font-bold text-navy mt-3">{product.name}</h1>
-            <p className="text-lg text-gray mt-1">{product.subtitle}</p>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mt-3">{product.name}</h1>
+            <p className="text-lg sm:text-xl text-gray mt-1">{product.subtitle}</p>
 
             {/* Price */}
             <div className="mt-6 flex items-baseline gap-3">
-              <span className="text-3xl font-bold text-navy">${product.price.toFixed(2)}</span>
+              <span className="text-3xl sm:text-4xl font-bold text-navy">${product.price.toFixed(2)}</span>
               {product.comparePrice && (
                 <span className="text-lg text-gray-light line-through">${product.comparePrice.toFixed(2)}</span>
               )}
@@ -137,6 +145,51 @@ export default function ProductDetail({ product, relatedProducts }: { product: P
               <h2 className="text-lg font-semibold text-navy mb-3">Description</h2>
               <p className="text-sm text-gray leading-relaxed">{product.description}</p>
             </div>
+
+            {/* COA Section */}
+            <div className="mt-6 p-4 rounded-xl bg-green-soft border border-green/20">
+              <div className="flex items-center gap-3">
+                <Shield size={20} className="text-green shrink-0" />
+                <div>
+                  <p className="text-sm font-semibold text-navy">Certificate of Analysis Included</p>
+                  <p className="text-xs text-gray mt-0.5">
+                    Batch-specific COA with HPLC purity data provided with every order.{' '}
+                    <Link href="/lab-testing" className="text-blue hover:text-navy font-medium transition-colors">
+                      Learn about our testing →
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* PubMed References */}
+            {product.pubmedRefs && product.pubmedRefs.length > 0 && (
+              <div className="mt-6 pt-6 border-t border-border">
+                <h2 className="text-lg font-semibold text-navy mb-3 flex items-center gap-2">
+                  <FlaskConical size={18} className="text-blue" />
+                  Published Research
+                </h2>
+                <p className="text-xs text-gray mb-3">
+                  Peer-reviewed studies related to this compound. For informational purposes only.
+                </p>
+                <div className="space-y-2">
+                  {product.pubmedRefs.map((ref) => (
+                    <a
+                      key={ref.url}
+                      href={ref.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors group"
+                    >
+                      <p className="text-sm font-medium text-navy group-hover:text-blue transition-colors leading-snug">
+                        {ref.title}
+                      </p>
+                      <p className="text-xs text-gray mt-1">{ref.journal} · PubMed ↗</p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

@@ -45,7 +45,7 @@ The main difference is size. Proteins are large, complex molecules with hundreds
 
 Interest in peptides has grown significantly in the wellness and research communities. People explore peptide education for many reasons, including general curiosity about how the body works and staying informed about emerging research topics.
 
-**Important:** Peptide Life Wellness provides educational content only. We do not make medical claims or provide dosing guidance. Always consult a licensed healthcare professional for health-related decisions.
+**Important:** NovaPure Labs provides educational content only. We do not make medical claims or provide dosing guidance. Always consult a licensed healthcare professional for health-related decisions.
 
 ## Common Categories of Peptide Research
 
@@ -163,7 +163,7 @@ The key to consistent tracking is simplicity. Our tracker is designed as a quick
 
 ## Disclaimer
 
-This article is for educational purposes only. Peptide Life Wellness does not provide medical advice, diagnosis, or treatment. Always speak with a licensed healthcare professional about your health.
+This article is for educational purposes only. NovaPure Labs does not provide medical advice, diagnosis, or treatment. Always speak with a licensed healthcare professional about your health.
     `,
   },
   {
@@ -260,7 +260,7 @@ If you are interested in peptides as part of a healthy aging strategy, the most 
 
 ## Disclaimer
 
-This article is for educational purposes only and does not constitute medical advice. Peptide Life Wellness does not claim that peptides provide anti-aging, healing, or therapeutic benefits. Always speak with a licensed healthcare professional.
+This article is for educational purposes only and does not constitute medical advice. NovaPure Labs does not claim that peptides provide anti-aging, healing, or therapeutic benefits. Always speak with a licensed healthcare professional.
     `,
   },
   {
@@ -432,7 +432,7 @@ Consistency is often cited as one of the most important factors in any wellness 
 
 ## Features of Our Free Wellness Tracker
 
-The **[Peptide Life Wellness Tracker](/tracker)** includes:
+The **[NovaPure Labs Tracker](/tracker)** includes:
 
 - **Custom reminders** — Set daily or weekly reminder schedules
 - **Quick check-in** — Log your wellness with a single tap
@@ -462,7 +462,7 @@ Our tracker is a Progressive Web App (PWA), which means you can install it direc
 
 ## Disclaimer
 
-The Peptide Life Wellness Tracker is a wellness habit tracking tool only. It does not provide medical advice, dosing instructions, or treatment guidance. Always consult a licensed healthcare professional.
+The NovaPure Labs Tracker is a wellness habit tracking tool only. It does not provide medical advice, dosing instructions, or treatment guidance. Always consult a licensed healthcare professional.
     `,
   },
   {
@@ -509,7 +509,7 @@ Be cautious of sources that:
 
 ## Our Commitment to Safety-First Education
 
-At Peptide Life Wellness, we are committed to providing educational content that prioritizes safety and informed decision-making. We do not make medical claims, sell products, or provide dosing advice.
+At NovaPure Labs, we are committed to providing educational content that prioritizes safety and informed decision-making. We do not make medical claims, sell products, or provide dosing advice.
 
 ## Disclaimer
 
