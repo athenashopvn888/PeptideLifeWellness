@@ -190,6 +190,96 @@ export default function ProductDetail({ product, relatedProducts }: { product: P
                 </div>
               </div>
             )}
+
+            {/* FAQ Section (Visible) */}
+            <div className="mt-6 pt-6 border-t border-border">
+              <h2 className="text-lg font-semibold text-navy mb-3">Frequently Asked Questions</h2>
+              <div className="space-y-2">
+                <details className="group bg-silver rounded-xl">
+                  <summary className="px-4 py-3 text-sm font-medium text-navy cursor-pointer list-none flex items-center justify-between">
+                    What is {product.name}?
+                    <span className="text-gray group-open:rotate-180 transition-transform text-xs">▼</span>
+                  </summary>
+                  <p className="px-4 pb-3 text-sm text-gray leading-relaxed">{product.description}</p>
+                </details>
+                <details className="group bg-silver rounded-xl">
+                  <summary className="px-4 py-3 text-sm font-medium text-navy cursor-pointer list-none flex items-center justify-between">
+                    What purity is {product.name}?
+                    <span className="text-gray group-open:rotate-180 transition-transform text-xs">▼</span>
+                  </summary>
+                  <p className="px-4 pb-3 text-sm text-gray leading-relaxed">
+                    {product.name} from NovaPure Labs is HPLC tested at {product.purity || '99%+'} purity. A Certificate of Analysis (COA) is included with every order, providing batch-specific verification.
+                  </p>
+                </details>
+                <details className="group bg-silver rounded-xl">
+                  <summary className="px-4 py-3 text-sm font-medium text-navy cursor-pointer list-none flex items-center justify-between">
+                    How should {product.name} be stored?
+                    <span className="text-gray group-open:rotate-180 transition-transform text-xs">▼</span>
+                  </summary>
+                  <p className="px-4 pb-3 text-sm text-gray leading-relaxed">
+                    Store lyophilized peptides at -20°C for long-term storage. Once reconstituted with bacteriostatic water, store at 2-8°C (refrigerated) and use within 30 days. Avoid direct sunlight and repeated freeze-thaw cycles.
+                  </p>
+                </details>
+                <details className="group bg-silver rounded-xl">
+                  <summary className="px-4 py-3 text-sm font-medium text-navy cursor-pointer list-none flex items-center justify-between">
+                    Does NovaPure Labs ship discreetly?
+                    <span className="text-gray group-open:rotate-180 transition-transform text-xs">▼</span>
+                  </summary>
+                  <p className="px-4 pb-3 text-sm text-gray leading-relaxed">
+                    Yes. All orders are shipped in plain, unmarked packaging with no product names visible on the exterior. Shipped from Canada with tracking included.
+                  </p>
+                </details>
+              </div>
+            </div>
+
+            {/* Related Research */}
+            <div className="mt-6 pt-6 border-t border-border">
+              <h2 className="text-lg font-semibold text-navy mb-3">Related Research</h2>
+              <div className="space-y-2">
+                {product.slug.includes('bpc') && (
+                  <>
+                    <Link href="/research/wolverine-stack" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">🐺 Wolverine Stack Guide (BPC-157 + TB-500) →</Link>
+                    <Link href="/research/comparisons/bpc-157-vs-tb-500" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">⚔️ BPC-157 vs TB-500 Comparison →</Link>
+                    <Link href="/research/best-peptides/recovery" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">🏆 Best Peptides for Recovery →</Link>
+                  </>
+                )}
+                {product.slug.includes('tb-500') && (
+                  <>
+                    <Link href="/research/wolverine-stack" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">🐺 Wolverine Stack Guide (BPC-157 + TB-500) →</Link>
+                    <Link href="/research/comparisons/bpc-157-vs-tb-500" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">⚔️ BPC-157 vs TB-500 Comparison →</Link>
+                  </>
+                )}
+                {(product.slug.includes('cjc') || product.slug.includes('ipamorelin')) && (
+                  <>
+                    <Link href="/research/stacks/gh-stack" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">💪 GH Stack Guide (CJC-1295 + Ipamorelin) →</Link>
+                    <Link href="/research/comparisons/cjc-1295-vs-ipamorelin" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">📊 CJC-1295 vs Ipamorelin Comparison →</Link>
+                    <Link href="/research/best-peptides/muscle-growth" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">🏆 Best Peptides for Muscle & Growth →</Link>
+                  </>
+                )}
+                {(product.slug.includes('semaglutide') || product.slug.includes('tirzepatide')) && (
+                  <>
+                    <Link href="/research/comparisons/semaglutide-vs-tirzepatide" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">📊 Semaglutide vs Tirzepatide Comparison →</Link>
+                    <Link href="/research/best-peptides/weight-management" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">🏆 Best Peptides for Weight Management →</Link>
+                  </>
+                )}
+                {(product.slug.includes('ghk') || product.slug.includes('epitalon') || product.slug.includes('nad')) && (
+                  <Link href="/research/best-peptides/anti-aging" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">🏆 Best Peptides for Anti-Aging →</Link>
+                )}
+                <Link href="/research/glossary" className="block p-3 rounded-lg bg-silver hover:bg-blue-soft transition-colors text-sm font-medium text-navy">📖 Peptide Research Glossary →</Link>
+              </div>
+            </div>
+
+            {/* Expert Byline */}
+            <div className="mt-6 pt-6 border-t border-border">
+              <div className="flex items-center gap-3 p-4 bg-silver rounded-xl">
+                <div className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-white text-sm font-bold shrink-0">NP</div>
+                <div>
+                  <p className="text-xs text-gray">Reviewed by</p>
+                  <p className="text-sm font-semibold text-navy">NovaPure Labs Research Team</p>
+                  <p className="text-xs text-gray">Last updated: May 2026 · For laboratory research only</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
