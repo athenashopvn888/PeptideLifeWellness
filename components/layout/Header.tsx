@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/lab-testing', label: 'Lab Testing' },
   { href: '/calculator', label: 'Calculator' },
   { href: '/guides', label: 'Guides' },
+  { href: '/research', label: 'Research' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -119,7 +120,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`px-4 py-1.5 text-sm font-medium transition-colors duration-200 ${
-                  pathname === link.href || (link.href === '/shop' && pathname.startsWith('/shop'))
+                  pathname === link.href || (link.href === '/shop' && pathname.startsWith('/shop')) || (link.href === '/research' && pathname.startsWith('/research'))
                     ? 'text-white bg-white/15 rounded'
                     : 'text-white/80 hover:text-white hover:bg-white/10 rounded'
                 }`}
@@ -163,7 +164,7 @@ export default function Header() {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                  pathname === link.href || (link.href === '/shop' && pathname.startsWith('/shop'))
+                  pathname === link.href || (link.href === '/shop' && pathname.startsWith('/shop')) || (link.href === '/research' && pathname.startsWith('/research'))
                     ? 'text-blue bg-blue-soft'
                     : 'text-gray-dark hover:bg-silver'
                 }`}
