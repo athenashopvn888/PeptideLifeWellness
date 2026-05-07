@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { ArrowRight, Beaker, FlaskConical, BookOpen } from 'lucide-react';
+import { ArrowRight, Beaker, FlaskConical, BookOpen, Trophy, Library } from 'lucide-react';
 import { isFeatureEnabled } from '@/lib/config/featureFlags';
 
 export const metadata: Metadata = {
@@ -34,6 +34,17 @@ export default function ResearchHubPage() {
       ],
     },
     {
+      title: 'Best Research Peptides By Category',
+      description: 'Top-ranked research peptides for specific applications, based on available preclinical evidence.',
+      icon: Trophy,
+      links: [
+        { label: 'Best Peptides for Recovery & Healing', href: '/research/best-peptides/recovery' },
+        { label: 'Best Peptides for Muscle & Growth', href: '/research/best-peptides/muscle-growth' },
+        { label: 'Best Peptides for Weight Management', href: '/research/best-peptides/weight-management' },
+        { label: 'Best Peptides for Anti-Aging & Longevity', href: '/research/best-peptides/anti-aging' },
+      ],
+    },
+    {
       title: 'Educational Resources',
       description: 'Deep-dive guides on peptide science, purity testing, and lab protocols.',
       icon: BookOpen,
@@ -41,6 +52,14 @@ export default function ResearchHubPage() {
         { label: 'How HPLC Testing Works', href: '/lab-testing' },
         { label: 'Reconstitution Calculator', href: '/calculator' },
         { label: 'Peptide Research Guides', href: '/guides' },
+      ],
+    },
+    {
+      title: 'Glossary & Reference',
+      description: 'Key terminology and definitions for peptide research.',
+      icon: Library,
+      links: [
+        { label: 'Peptide Research Glossary (A-Z)', href: '/research/glossary' },
       ],
     },
   ];

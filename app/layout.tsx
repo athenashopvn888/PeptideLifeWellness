@@ -98,15 +98,22 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'NovaPure Labs',
-              url: 'https://novapurelabs.ca',
-              logo: 'https://novapurelabs.ca/images/novapure-circle.png',
+              url: 'https://peptidelifewellness.com',
+              logo: 'https://peptidelifewellness.com/images/novapure-circle.png',
               description:
-                'Pharmaceutical-grade research peptides. Third-party tested, 99%+ purity. COA included with every order.',
+                'Pharmaceutical-grade research peptides. Third-party HPLC tested, 99%+ purity. COA included with every order. Canadian-sourced.',
+              foundingDate: '2024',
+              areaServed: 'CA',
+              contactPoint: {
+                '@type': 'ContactPoint',
+                contactType: 'customer service',
+                email: 'support@novapurelabs.ca',
+              },
               sameAs: [],
             }),
           }}
         />
-        {/* WebSite Schema */}
+        {/* WebSite Schema with SearchAction */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -114,10 +121,11 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               name: 'NovaPure Labs',
-              url: 'https://novapurelabs.ca',
+              url: 'https://peptidelifewellness.com',
+              description: 'Lab-tested research peptides, 99%+ purity. Comparisons, stacking guides, and research resources.',
               potentialAction: {
                 '@type': 'SearchAction',
-                target: 'https://novapurelabs.ca/guides?q={search_term_string}',
+                target: 'https://peptidelifewellness.com/shop?q={search_term_string}',
                 'query-input': 'required name=search_term_string',
               },
             }),
