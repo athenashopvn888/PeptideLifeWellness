@@ -7,6 +7,18 @@ import { products, shopCategories } from '@/lib/data/products';
 import { useCart } from '@/components/cart/CartProvider';
 import { Star, ShoppingCart, Eye } from 'lucide-react';
 
+const categoryIcons: Record<string, string> = {
+  all: '/images/novapure-circle.png',
+  recovery: '/images/icon-healing.png',
+  'muscle-growth': '/images/icon-muscle.png',
+  'weight-loss': '/images/icon-weight.png',
+  'anti-aging': '/images/icon-antiaging.png',
+  cognitive: '/images/icon-cognitive.png',
+  'sexual-health': '/images/icon-sexual.png',
+  immune: '/images/icon-immune.png',
+  ancillaries: '/images/icon-ancillaries.png',
+};
+
 export default function ShopGrid() {
   const [activeCategory, setActiveCategory] = useState('all');
   const { addItem } = useCart();
@@ -19,22 +31,39 @@ export default function ShopGrid() {
 
   return (
     <>
-      {/* Category Filter Pills */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        {shopCategories.map((cat) => (
-          <button
-            key={cat.slug}
-            onClick={() => setActiveCategory(cat.slug)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-              activeCategory === cat.slug
-                ? 'bg-blue text-white shadow-md'
-                : 'bg-white border border-border text-gray-dark hover:border-blue hover:text-blue'
-            }`}
-            id={`filter-${cat.slug}`}
-          >
-            {cat.label}
-          </button>
-        ))}
+      {/* Scrollable Category Icons */}
+      <div className="overflow-x-auto -mx-4 px-4 pb-4 mb-6 scrollbar-hide">
+        <div className="flex gap-5 sm:gap-6 min-w-max">
+          {shopCategories.map((cat) => (
+            <button
+              key={cat.slug}
+              onClick={() => setActiveCategory(cat.slug)}
+              className={`flex flex-col items-center gap-2 group shrink-0 transition-all duration-200 ${
+                activeCategory === cat.slug ? 'scale-105' : 'opacity-70 hover:opacity-100'
+              }`}
+              id={`filter-${cat.slug}`}
+            >
+              <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-200 ${
+                activeCategory === cat.slug
+                  ? 'ring-3 ring-blue ring-offset-2 shadow-lg'
+                  : 'shadow-sm'
+              }`}>
+                <Image
+                  src={categoryIcons[cat.slug] || '/images/novapure-circle.png'}
+                  alt={cat.label}
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className={`text-[10px] sm:text-xs font-semibold text-center leading-tight max-w-[70px] ${
+                activeCategory === cat.slug ? 'text-navy' : 'text-gray'
+              }`}>
+                {cat.label}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Products Grid */}

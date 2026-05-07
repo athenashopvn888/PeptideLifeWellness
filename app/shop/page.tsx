@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import ShopGrid from '@/components/shop/ShopGrid';
-import MolecularBackground from '@/components/ui/MolecularBackground';
 
 export const metadata: Metadata = {
   title: 'Shop Peptides | Research Peptides & Ancillaries',
@@ -14,12 +14,27 @@ export const metadata: Metadata = {
 export default function ShopPage() {
   return (
     <div className="min-h-screen bg-silver" id="shop-page">
-      {/* Header */}
-      <section className="bg-white relative overflow-hidden py-10 sm:py-14 px-4 border-b border-border">
-        <MolecularBackground density="sparse" />
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h1 className="text-3xl sm:text-4xl font-bold text-navy">Shop Peptides</h1>
-          <p className="mt-3 text-gray max-w-lg mx-auto">Third-party lab tested, 99%+ purity. Research peptides and ancillaries.</p>
+      {/* Banner Hero */}
+      <section className="relative overflow-hidden">
+        <div className="relative h-[200px] sm:h-[280px] lg:h-[340px]">
+          <Image
+            src="/images/nova-banner-2.png"
+            alt="NovaPure Labs - Buy Research Peptides Canada"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/40 to-transparent" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 h-full flex items-center">
+            <div>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                Shop Peptides
+              </h1>
+              <p className="mt-2 text-sm sm:text-base text-white/80 max-w-md">
+                Third-party lab tested, 99%+ purity. Research peptides and ancillaries.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
