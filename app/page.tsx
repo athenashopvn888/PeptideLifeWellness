@@ -39,59 +39,84 @@ export default function HomePage() {
   return (
     <>
       {/* ==========================================
-          HERO — Trust-First Design
+          HERO — Full-Width Lab Photo (Revico-style)
           ========================================== */}
-      <section className="relative overflow-hidden bg-white" id="hero">
-        <MolecularBackground density="normal" />
-        <div className="hero-gradient-overlay absolute inset-0" />
+      <section className="relative overflow-hidden" id="hero">
+        {/* Full-width lab background image */}
+        <div className="relative min-h-[420px] sm:min-h-[500px] lg:min-h-[560px]">
+          <Image
+            src="/images/lab-hero.png"
+            alt="Pharmaceutical laboratory"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/60 to-navy/30" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-0 sm:py-16 lg:py-24 relative z-10">
-          {/* Mobile: Stack vertically, bottles first for maximum impact */}
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
-            {/* Text — On mobile appears second (order-2), on desktop left (order-1) */}
-            <div className="animate-fade-in-up order-2 lg:order-1 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-green-soft text-green text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-                <CheckCircle size={12} /> Every Batch Third-Party Verified
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-[1.1] tracking-tight">
-                99.5% Purity.{' '}
-                <span className="text-gradient-brand">Verified.</span>
+          {/* Hero text content */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center min-h-[420px] sm:min-h-[500px] lg:min-h-[560px]">
+            <div className="max-w-xl animate-fade-in-up py-12">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] tracking-tight">
+                Buy Research Peptides Canada |{' '}
+                <span className="text-green">Pharmaceutical Grade</span> Peptides
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-gray leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Pharmaceutical-grade research peptides backed by independent HPLC testing and a
-                Certificate of Analysis with every order.
+              <p className="mt-4 text-sm sm:text-base text-white/80 leading-relaxed max-w-md">
+                Canadian-Sourced · Independently Verified · For Lab Use Only
               </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/shop"
-                  className="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-navy-light transition-all duration-200 shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-full text-base font-semibold hover:bg-silver transition-all duration-200 shadow-lg"
                   id="hero-cta-shop"
                 >
-                  Shop Now <ArrowRight size={18} />
+                  Browse Peptides
                 </Link>
                 <Link
                   href="/lab-testing"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-full text-base font-semibold hover:bg-silver transition-all duration-200 border-2 border-navy"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-white/20 transition-all duration-200 border border-white/30"
                   id="hero-cta-lab"
                 >
                   <FileCheck size={18} /> View Lab Results
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Hero Bottle — On mobile: ONE full-width bottle, edge-to-edge */}
-            <div className="order-1 lg:order-2 animate-fade-in w-full">
-              {/* Mobile: Full-width single bottle — premium pharmaceutical aesthetic */}
-              <div className="sm:hidden flex items-center justify-center -mx-4 pt-2 pb-4">
-                <Image src="/images/recoverybottle1.png" alt="BPC-157 Research Peptide" width={500} height={750} className="w-full max-w-[85vw] h-auto drop-shadow-2xl animate-fade-in-up" priority />
-              </div>
-              {/* Desktop: 3 bottles, clean composition */}
-              <div className="hidden sm:flex items-end justify-center gap-4 lg:gap-6">
-                <Image src="/images/recoverybottle1.png" alt="BPC-157" width={220} height={340} className="w-[140px] lg:w-[180px] h-auto drop-shadow-2xl animate-fade-in-up" priority />
-                <Image src="/images/musclebottle1.png" alt="CJC-1295" width={220} height={340} className="w-[140px] lg:w-[180px] h-auto drop-shadow-2xl animate-fade-in-up delay-100" priority />
-                <Image src="/images/samplebottle2.png" alt="Semaglutide" width={220} height={340} className="w-[140px] lg:w-[180px] h-auto drop-shadow-2xl animate-fade-in-up delay-200" />
-              </div>
-            </div>
+      {/* ==========================================
+          SHOP BY CATEGORY — Circular Icons (Revico-style)
+          ========================================== */}
+      <section className="py-10 sm:py-14 bg-white" id="shop-by-category">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-navy">Shop By Product Type</h2>
+          <p className="mt-2 text-gray text-sm sm:text-base">Explore peptides by research category</p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-8 sm:mt-10">
+            {[
+              { label: 'Recovery & Healing', icon: '🔬', slug: 'recovery' },
+              { label: 'Muscle & Growth', icon: '💪', slug: 'muscle-growth' },
+              { label: 'Weight Management', icon: '⚖️', slug: 'weight-loss' },
+              { label: 'Anti-Aging & Skin', icon: '✨', slug: 'anti-aging' },
+              { label: 'Cognitive & Focus', icon: '🧠', slug: 'cognitive' },
+              { label: 'Sexual Health', icon: '❤️', slug: 'sexual-health' },
+              { label: 'Immune Support', icon: '🛡️', slug: 'immune' },
+              { label: 'Ancillaries', icon: '🧪', slug: 'ancillaries' },
+            ].map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/shop?category=${cat.slug}`}
+                className="flex flex-col items-center gap-3 group"
+              >
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-navy flex items-center justify-center text-3xl sm:text-4xl shadow-lg group-hover:bg-navy-light group-hover:scale-105 transition-all duration-300">
+                  {cat.icon}
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-navy text-center leading-tight">
+                  {cat.label}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import AnnouncementBar from '@/components/layout/AnnouncementBar';
+import MobileBottomNav from '@/components/layout/MobileBottomNav';
 import { CartProvider } from '@/components/cart/CartProvider';
 import CartDrawer from '@/components/cart/CartDrawer';
 import AgeVerificationGate from '@/components/ui/AgeVerificationGate';
@@ -123,10 +125,12 @@ export default function RootLayout({
         />
         <CartProvider>
           <AgeVerificationGate />
+          <AnnouncementBar />
           <Header />
           <CartDrawer />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen has-bottom-nav">{children}</main>
           <Footer />
+          <MobileBottomNav />
         </CartProvider>
       </body>
     </html>
