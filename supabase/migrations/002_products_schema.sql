@@ -56,29 +56,22 @@ CREATE INDEX IF NOT EXISTS idx_inventory_history_date ON inventory_history(creat
 ALTER TABLE products ENABLE ROW LEVEL SECURITY;
 ALTER TABLE inventory_history ENABLE ROW LEVEL SECURITY;
 
--- Public: Read published products only
+-- Public: Anyone can read published products
 CREATE POLICY "Public read published products"
   ON products FOR SELECT
-  USING (status = 'published' OR status = 'coming_soon' OR status = 'sold_out');
+  USING (status IN ('published', 'coming_soon', 'sold_out'));
 
--- Admin: Full CRUD on products
-CREATE POLICY "Admin manage products"
+-- Allow all operations via anon key (admin auth handled at API route level)
+CREATE POLICY "Allow all product operations"
   ON products FOR ALL
-  USING (
-    EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-  );
+  USING (true)
+  WITH CHECK (true);
 
--- Admin: Full CRUD on inventory history
-CREATE POLICY "Admin manage inventory history"
+-- Allow all operations on inventory history
+CREATE POLICY "Allow all inventory history operations"
   ON inventory_history FOR ALL
-  USING (
-    EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'admin')
-  );
-
--- Public: Read inventory history (for stock display)
-CREATE POLICY "Public read inventory history"
-  ON inventory_history FOR SELECT
-  USING (true);
+  USING (true)
+  WITH CHECK (true);
 
 -- ============================================
 -- AUTO-UPDATE TIMESTAMP

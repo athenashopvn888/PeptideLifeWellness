@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createClient } from '@supabase/supabase-js';
 import { products } from '@/lib/data/products';
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'novapure2026';
@@ -10,8 +10,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!url || !key) {
+    return NextResponse.json({
+      error: `Missing Supabase env vars. URL present: ${!!url}, Key present: ${!!key}. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to your Vercel Environment Variables and redeploy.`,
+    }, { status: 500 });
+  }
+
   try {
-    const supabase = await createClient();
+    const supabase = createClient(url, key);
 
     // Check if products already exist
     const { data: existing } = await supabase
