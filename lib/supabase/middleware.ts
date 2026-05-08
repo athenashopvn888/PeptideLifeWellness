@@ -42,10 +42,7 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
-  // Protect /admin routes — redirect if not admin
-  if (request.nextUrl.pathname.startsWith('/admin') && !user) {
-    return NextResponse.redirect(new URL('/auth/login', request.url));
-  }
+
 
   // Redirect logged-in users away from auth pages
   if (request.nextUrl.pathname.startsWith('/auth/') && user && !request.nextUrl.pathname.includes('callback')) {
