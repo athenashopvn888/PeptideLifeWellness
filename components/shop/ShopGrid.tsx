@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { products, shopCategories } from '@/lib/data/products';
+import { shopCategories } from '@/lib/data/products';
+import type { Product } from '@/lib/data/products';
 import { useCart } from '@/components/cart/CartProvider';
-import { Star, ShoppingCart, Eye } from 'lucide-react';
+import { Star, ShoppingCart, Eye, Clock, XCircle } from 'lucide-react';
 
 const categoryIcons: Record<string, string> = {
   all: '/images/novapure-circle.png',
@@ -19,7 +20,7 @@ const categoryIcons: Record<string, string> = {
   ancillaries: '/images/icon-ancillaries.png',
 };
 
-export default function ShopGrid() {
+export default function ShopGrid({ products }: { products: (Product & { status?: string })[] }) {
   const [activeCategory, setActiveCategory] = useState('all');
   const { addItem } = useCart();
 
@@ -74,14 +75,26 @@ export default function ShopGrid() {
             className="group bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative"
             id={`product-${product.slug}`}
           >
-            {/* Badge */}
-            {product.badge && (
+            {/* Badge / Status */}
+            {((product as Product & { status?: string }).status === 'sold_out') ? (
+              <div className="absolute top-3 left-3 z-10">
+                <span className="bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                  <XCircle size={12} /> Sold Out
+                </span>
+              </div>
+            ) : (product as Product & { status?: string }).status === 'coming_soon' ? (
+              <div className="absolute top-3 left-3 z-10">
+                <span className="bg-amber-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                  <Clock size={12} /> Coming Soon
+                </span>
+              </div>
+            ) : product.badge ? (
               <div className="absolute top-3 left-3 z-10">
                 <span className="bg-green text-white text-xs font-bold px-2.5 py-1 rounded-full">
                   {product.badge}
                 </span>
               </div>
-            )}
+            ) : null}
 
             {/* Image */}
             <Link href={`/shop/${product.slug}`} className="block relative bg-gradient-to-b from-silver to-white p-2 sm:p-3 flex items-center justify-center min-h-[220px] sm:min-h-[300px]">
@@ -144,20 +157,31 @@ export default function ShopGrid() {
                   )}
                   <span className="text-lg sm:text-xl font-bold text-navy">${product.price.toFixed(2)}</span>
                 </div>
-                <button
-                  onClick={() => addItem(product)}
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue text-white flex items-center justify-center hover:bg-blue-dark transition-colors shadow-sm"
-                  aria-label={`Add ${product.name} to cart`}
-                  id={`add-cart-${product.slug}`}
-                >
-                  <ShoppingCart size={18} />
-                </button>
+                {((product as Product & { status?: string }).status === 'sold_out' || (product as Product & { status?: string }).status === 'coming_soon') ? (
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gray-300 text-gray-500 flex items-center justify-center cursor-not-allowed">
+                    <ShoppingCart size={18} />
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => addItem(product)}
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-blue text-white flex items-center justify-center hover:bg-blue-dark transition-colors shadow-sm"
+                    aria-label={`Add ${product.name} to cart`}
+                    id={`add-cart-${product.slug}`}
+                  >
+                    <ShoppingCart size={18} />
+                  </button>
+                )}
               </div>
 
               {/* Stock */}
               <div className="mt-2 flex items-center gap-1">
-                <div className={`w-1.5 h-1.5 rounded-full ${product.inStock ? 'bg-green' : 'bg-red-400'}`} />
-                <span className="text-xs text-gray">{product.inStock ? 'In Stock' : 'Out of Stock'}</span>
+                {(product as Product & { status?: string }).status === 'coming_soon' ? (
+                  <><div className="w-1.5 h-1.5 rounded-full bg-amber-400" /><span className="text-xs text-amber-600">Coming Soon</span></>
+                ) : (product as Product & { status?: string }).status === 'sold_out' ? (
+                  <><div className="w-1.5 h-1.5 rounded-full bg-red-400" /><span className="text-xs text-red-500">Sold Out</span></>
+                ) : (
+                  <><div className={`w-1.5 h-1.5 rounded-full ${product.inStock ? 'bg-green' : 'bg-red-400'}`} /><span className="text-xs text-gray">{product.inStock ? 'In Stock' : 'Out of Stock'}</span></>
+                )}
               </div>
             </div>
           </div>

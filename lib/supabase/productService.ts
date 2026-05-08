@@ -1,6 +1,13 @@
-import { createClient } from './server';
+import { createClient } from '@supabase/supabase-js';
 import { products as localProducts } from '@/lib/data/products';
 import type { Product } from '@/lib/data/products';
+
+function getSupabase() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !key) return null;
+  return createClient(url, key);
+}
 
 // ════════════════════════════════════════════════
 // DATABASE → FRONTEND TYPE MAPPING
@@ -62,7 +69,8 @@ function dbToProduct(row: DBProduct): Product & { status: string; stockQuantity:
 
 export async function getPublishedProducts(): Promise<Product[]> {
   try {
-    const supabase = await createClient();
+    const supabase = getSupabase();
+    if (!supabase) return localProducts;
     const { data, error } = await supabase
       .from('products')
       .select('*')
@@ -84,7 +92,8 @@ export async function getPublishedProducts(): Promise<Product[]> {
 
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
   try {
-    const supabase = await createClient();
+    const supabase = getSupabase();
+    if (!supabase) return localProducts.find((p) => p.slug === slug);
     const { data, error } = await supabase
       .from('products')
       .select('*')
@@ -106,7 +115,12 @@ export async function getProductsByCategory(category: string): Promise<Product[]
   if (category === 'all' || !category) return getPublishedProducts();
 
   try {
-    const supabase = await createClient();
+    const supabase = getSupabase();
+    if (!supabase) {
+      return localProducts.filter(
+        (p) => p.category.toLowerCase().replace(/[\s&]+/g, '-').replace(/-+/g, '-') === category.toLowerCase()
+      );
+    }
     const { data, error } = await supabase
       .from('products')
       .select('*')
@@ -134,7 +148,8 @@ export async function getProductsByCategory(category: string): Promise<Product[]
 
 export async function getAllProductsAdmin(): Promise<(Product & { status: string; stockQuantity: number })[]> {
   try {
-    const supabase = await createClient();
+    const supabase = getSupabase();
+    if (!supabase) throw new Error('Supabase not configured');
     const { data, error } = await supabase
       .from('products')
       .select('*')
@@ -171,7 +186,8 @@ export async function updateProduct(
     sort_order: number;
   }>
 ) {
-  const supabase = await createClient();
+  const supabase = getSupabase();
+  if (!supabase) throw new Error('Supabase not configured');
   const { data, error } = await supabase
     .from('products')
     .update(updates)
@@ -189,7 +205,8 @@ export async function adjustStock(
   changeType: 'intake' | 'sale' | 'adjustment' | 'return',
   notes?: string
 ) {
-  const supabase = await createClient();
+  const supabase = getSupabase();
+  if (!supabase) throw new Error('Supabase not configured');
 
   // Get current stock
   const { data: product, error: fetchError } = await supabase
@@ -229,7 +246,8 @@ export async function adjustStock(
 }
 
 export async function getInventoryHistory(productId: string) {
-  const supabase = await createClient();
+  const supabase = getSupabase();
+  if (!supabase) throw new Error('Supabase not configured');
   const { data, error } = await supabase
     .from('inventory_history')
     .select('*')

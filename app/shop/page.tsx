@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import ShopGrid from '@/components/shop/ShopGrid';
+import { getPublishedProducts } from '@/lib/supabase/productService';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Shop Peptides | Research Peptides & Ancillaries',
@@ -11,7 +14,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ShopPage() {
+export default async function ShopPage() {
+  const products = await getPublishedProducts();
+
   return (
     <div className="min-h-screen bg-silver" id="shop-page">
       {/* Banner Hero */}
@@ -40,7 +45,7 @@ export default function ShopPage() {
 
       {/* Shop Content */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <ShopGrid />
+        <ShopGrid products={products} />
       </section>
     </div>
   );

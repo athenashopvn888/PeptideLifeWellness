@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { products, getProductBySlug } from '@/lib/data/products';
+import { products } from '@/lib/data/products';
+import { getProductBySlug as getDBProduct, getPublishedProducts } from '@/lib/supabase/productService';
 import ProductDetail from '@/components/shop/ProductDetail';
 import type { Metadata } from 'next';
 
@@ -7,13 +8,15 @@ export async function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getDBProduct(slug);
   if (!product) return { title: 'Product Not Found' };
 
   return {
@@ -36,10 +39,11 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getDBProduct(slug);
   if (!product) notFound();
 
-  const related = products
+  const allProducts = await getPublishedProducts();
+  const related = allProducts
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
