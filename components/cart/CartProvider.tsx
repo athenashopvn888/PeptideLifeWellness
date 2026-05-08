@@ -44,6 +44,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [items, mounted]);
 
   const addItem = useCallback((product: Product, quantity = 1) => {
+    // Block non-purchasable products (status from Supabase)
+    const status = (product as Product & { status?: string }).status;
+    if (status && status !== 'published') return;
+    if (!product.inStock) return;
+
     setItems((prev) => {
       const existing = prev.find((i) => i.product.id === product.id);
       if (existing) {
