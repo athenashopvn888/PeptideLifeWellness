@@ -1,13 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'novapure2026';
-
-export async function GET(req: NextRequest) {
-  const auth = req.headers.get('x-admin-password');
-  if (auth !== ADMIN_PASSWORD) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
+// Temporary diagnostic endpoint — remove after setup
+export async function GET() {
   return NextResponse.json({
     hasUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
     urlPreview: process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -18,6 +12,9 @@ export async function GET(req: NextRequest) {
       ? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY.substring(0, 10) + '...'
       : 'MISSING',
     hasAdminPw: !!process.env.ADMIN_PASSWORD,
+    adminPwPreview: process.env.ADMIN_PASSWORD
+      ? process.env.ADMIN_PASSWORD.substring(0, 4) + '...'
+      : 'MISSING (using default)',
     nodeEnv: process.env.NODE_ENV,
   });
 }
