@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
@@ -91,20 +90,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
-      <body className="font-sans antialiased" suppressHydrationWarning>
-        {/* Google Analytics & Search Console Integration */}
-        <Script
+      <head>
+        {/* Google Analytics Script in <head> for GSC Ownership Verification */}
+        <script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-2CHHYD31SF"
-          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-2CHHYD31SF');
-          `}
-        </Script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2CHHYD31SF');
+            `,
+          }}
+        />
+      </head>
+      <body className="font-sans antialiased" suppressHydrationWarning>
         {/* Organization Schema */}
         <script
           type="application/ld+json"
