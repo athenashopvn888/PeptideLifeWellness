@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
@@ -8,6 +9,7 @@ import MobileBottomNav from '@/components/layout/MobileBottomNav';
 import { CartProvider } from '@/components/cart/CartProvider';
 import CartDrawer from '@/components/cart/CartDrawer';
 import AgeVerificationGate from '@/components/ui/AgeVerificationGate';
+import PublicChromeWrapper from '@/components/layout/PublicChromeWrapper';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -88,8 +90,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased">
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <body className="font-sans antialiased" suppressHydrationWarning>
+        {/* Google Analytics & Search Console Integration */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2CHHYD31SF"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2CHHYD31SF');
+          `}
+        </Script>
         {/* Organization Schema */}
         <script
           type="application/ld+json"
@@ -132,13 +147,17 @@ export default function RootLayout({
           }}
         />
         <CartProvider>
-          <AgeVerificationGate />
-          <AnnouncementBar />
-          <Header />
-          <CartDrawer />
+          <PublicChromeWrapper>
+            <AgeVerificationGate />
+            <AnnouncementBar />
+            <Header />
+            <CartDrawer />
+          </PublicChromeWrapper>
           <main className="min-h-screen has-bottom-nav">{children}</main>
-          <Footer />
-          <MobileBottomNav />
+          <PublicChromeWrapper>
+            <Footer />
+            <MobileBottomNav />
+          </PublicChromeWrapper>
         </CartProvider>
       </body>
     </html>
