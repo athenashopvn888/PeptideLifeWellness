@@ -1,28 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
-
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'novapure2026';
-
-function getSupabase() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) throw new Error(`Missing Supabase config. URL: ${!!url}, Key: ${!!key}`);
-  return createClient(url, key);
-}
-
-function checkAuth(req: NextRequest): boolean {
-  const auth = req.headers.get('x-admin-password');
-  return auth === ADMIN_PASSWORD;
-}
+import { createClient } from '@/lib/supabase/server';
+import { getCurrentAdminProfile } from '@/lib/supabase/authService';
 
 // GET all products (admin view — all statuses)
-export async function GET(req: NextRequest) {
-  if (!checkAuth(req)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+export async function GET() {
+  const caller = await getCurrentAdminProfile();
+  if (!caller || !caller.isActive) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   try {
-    const supabase = getSupabase();
+    const supabase = await createClient();
     const { data, error } = await supabase
       .from('products')
       .select('*')
@@ -38,16 +24,15 @@ export async function GET(req: NextRequest) {
 
 // PUT update a product
 export async function PUT(req: NextRequest) {
-  if (!checkAuth(req)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  const caller = await getCurrentAdminProfile();
+  if (!caller || !caller.isActive) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   try {
     const body = await req.json();
     const { id, ...updates } = body;
     if (!id) return NextResponse.json({ error: 'Missing product id' }, { status: 400 });
 
-    const supabase = getSupabase();
+    const supabase = await createClient();
     const { data, error } = await supabase
       .from('products')
       .update(updates)
@@ -64,9 +49,8 @@ export async function PUT(req: NextRequest) {
 
 // POST adjust stock
 export async function POST(req: NextRequest) {
-  if (!checkAuth(req)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  const caller = await getCurrentAdminProfile();
+  if (!caller || !caller.isActive) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   try {
     const { productId, quantityChange, changeType, notes } = await req.json();
@@ -74,7 +58,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const supabase = getSupabase();
+    const supabase = await createClient();
 
     // Get current stock
     const { data: product, error: fetchErr } = await supabase
@@ -107,7 +91,7 @@ export async function POST(req: NextRequest) {
       quantity_change: quantityChange,
       quantity_after: newQty,
       notes: notes || null,
-      created_by: 'admin',
+      created_by: caller.fullName || caller.userId,
     });
 
     return NextResponse.json({ newQuantity: newQty });

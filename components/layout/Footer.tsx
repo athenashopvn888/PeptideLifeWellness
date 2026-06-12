@@ -16,6 +16,7 @@ const footerLinks = {
     { href: '/about', label: 'About Us' },
   ],
   'Legal': [
+    { href: '/track', label: 'Track Order' },
     { href: '/contact', label: 'Contact' },
     { href: '/disclaimer', label: 'Disclaimer' },
     { href: '/privacy', label: 'Privacy Policy' },
