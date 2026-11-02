@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Calculator, FlaskConical, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calculator, FlaskConical, Pause, Play, ShieldCheck } from 'lucide-react';
 
 const slides = [
   {
@@ -40,7 +40,8 @@ const slides = [
 
 export default function HeroCarousel() {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [interactionPaused, setInteractionPaused] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -52,10 +53,10 @@ export default function HeroCarousel() {
   }, []);
 
   useEffect(() => {
-    if (paused || reducedMotion) return;
+    if (interactionPaused || userPaused || reducedMotion) return;
     const timer = window.setInterval(() => setActive((current) => (current + 1) % slides.length), 6000);
     return () => window.clearInterval(timer);
-  }, [paused, reducedMotion]);
+  }, [interactionPaused, userPaused, reducedMotion]);
 
   const show = (index: number) => setActive((index + slides.length) % slides.length);
 
@@ -64,11 +65,11 @@ export default function HeroCarousel() {
       className="relative isolate min-h-[620px] overflow-hidden border-b border-[#8fb6c5] bg-[#061b3a] sm:min-h-[570px]"
       aria-label="Nova Pure Labs highlights"
       aria-roledescription="carousel"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
+      onMouseEnter={() => setInteractionPaused(true)}
+      onMouseLeave={() => setInteractionPaused(false)}
+      onFocusCapture={() => setInteractionPaused(true)}
       onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
+        if (!event.currentTarget.contains(event.relatedTarget)) setInteractionPaused(false);
       }}
     >
       {slides.map((slide, index) => (
@@ -127,6 +128,9 @@ export default function HeroCarousel() {
             ))}
           </div>
           <div className="flex gap-2">
+            <button type="button" onClick={() => setUserPaused((current) => !current)} className="flex h-11 w-11 items-center justify-center rounded-full border border-white/45 bg-[#061b3a]/45 text-white backdrop-blur transition hover:border-white hover:bg-[#061b3a]/70" aria-label={userPaused ? 'Resume automatic slide rotation' : 'Pause automatic slide rotation'}>
+              {userPaused ? <Play size={17} /> : <Pause size={17} />}
+            </button>
             <button type="button" onClick={() => show(active - 1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-white/45 bg-[#061b3a]/45 text-white backdrop-blur transition hover:border-white hover:bg-[#061b3a]/70" aria-label="Previous slide">
               <ArrowLeft size={18} />
             </button>
