@@ -1,14 +1,13 @@
 import type { MetadataRoute } from 'next';
 import { articles } from '@/lib/data/articles';
-import { products } from '@/lib/data/products';
+import { draftProducts } from '@/lib/data/draftProducts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://peptidelifewellness.com';
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/shop`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
-    { url: `${baseUrl}/lab-testing`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/products`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
     { url: `${baseUrl}/calculator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/tracker`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/guides`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
@@ -42,12 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const productPages: MetadataRoute.Sitemap = products.map((product) => ({
-    url: `${baseUrl}/shop/${product.slug}`,
+  const draftProductPages: MetadataRoute.Sitemap = draftProducts.map(({ slug }) => ({
+    url: `${baseUrl}/products/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
 
-  return [...staticPages, ...researchPages, ...articlePages, ...productPages];
+  return [...staticPages, ...researchPages, ...articlePages, ...draftProductPages];
 }
