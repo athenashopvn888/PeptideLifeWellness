@@ -13,7 +13,7 @@ export default function MobileBottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-black/10 bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.08)] sm:hidden" id="mobile-bottom-nav">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#bfc6cb] bg-[#f8f9f9] shadow-[0_-2px_10px_rgba(32,35,39,0.10)] sm:hidden" id="mobile-bottom-nav">
       <div className="flex items-center justify-around h-16">
         {navItems.map((item) => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
@@ -22,7 +22,7 @@ export default function MobileBottomNav() {
               key={item.href}
               href={item.href}
               className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full transition-colors ${
-                isActive ? 'text-black' : 'text-black/40'
+                isActive ? 'text-[#526f82]' : 'text-black/40'
               }`}
             >
               <item.icon size={22} strokeWidth={isActive ? 2.5 : 1.5} />
