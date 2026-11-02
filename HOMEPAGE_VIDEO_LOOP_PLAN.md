@@ -1,6 +1,6 @@
 # Nova Pure Labs Homepage Video Loop Plan
 
-Status: Approved by Tri on 2026-11-02. Higgsfield refused the paid render because the account requires Plus, so the approved no-subscription MP4 fallback was produced from Nova Pure’s arctic laboratory artwork and integrated with the static accessibility fallback.
+Status: Superseded on 2026-11-02. Tri rejected the motion treatment and directed its removal in favor of a static-image carousel.
 
 ## Vaughan Peptides implementation found
 

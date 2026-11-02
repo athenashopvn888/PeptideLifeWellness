@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Calculator, FileSearch, FlaskConical, ShieldCheck } from 'lucide-react';
+import { ArrowRight, BookOpen, Calculator, FileSearch, ShieldCheck } from 'lucide-react';
 import DraftProductCard from '@/components/products/DraftProductCard';
+import HeroCarousel from '@/components/home/HeroCarousel';
 import { draftProducts } from '@/lib/data/draftProducts';
 
 export const metadata: Metadata = {
@@ -26,35 +27,7 @@ const catalogueStandards = [
 export default function HomePage() {
   return (
     <div className="bg-[#eaf8fc] text-[#13283b]">
-      <section className="relative isolate min-h-[600px] overflow-hidden border-b border-[#8fb6c5] bg-[#061b3a] sm:min-h-[560px]">
-        <video
-          aria-hidden="true"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster="/images/nova-arctic/arctic-lab-wide.png"
-          className="absolute inset-0 h-full w-full object-cover object-center motion-reduce:hidden"
-        >
-          <source src="/videos/arctic-lab-loop.mp4" type="video/mp4" />
-        </video>
-        <Image src="/images/nova-arctic/arctic-lab-wide.png" alt="" fill sizes="100vw" priority className="hidden object-cover object-[68%_center] motion-reduce:block sm:object-center" />
-        <div className="absolute inset-0 bg-[rgba(4,21,48,.78)] sm:bg-[linear-gradient(90deg,rgba(4,21,48,.92)_0%,rgba(4,35,65,.78)_38%,rgba(5,45,72,.22)_72%,rgba(255,255,255,.03)_100%)]" />
-        <div className="absolute inset-0 opacity-25 [background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.2)_0,rgba(255,255,255,.2)_1px,transparent_1px,transparent_12px)]" />
-        <div className="relative mx-auto flex min-h-[600px] max-w-7xl items-center px-4 py-16 sm:min-h-[560px] sm:px-6 lg:px-8">
-          <div className="max-w-2xl text-white">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#d7e0e5]/45 bg-[#061b3a]/35 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#dce5ea] shadow-sm backdrop-blur sm:text-xs"><FlaskConical size={14} /> Nova Pure Labs</div>
-            <h1 className="mt-6 text-5xl font-black leading-[0.96] tracking-[-0.05em] sm:text-7xl">Precision in<br /><span className="text-[#cbd5db]">every detail.</span></h1>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-white/78 sm:text-lg">A modern research catalogue built around clear product identification, sourced scientific context, and transparent listing status.</p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/products" className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-[#061b3a] shadow-lg shadow-black/20 transition hover:bg-[#dce7ec]">View Products <ArrowRight size={17} /></Link>
-              <Link href="/guides" className="inline-flex items-center gap-2 rounded-full border border-white/45 bg-[#061b3a]/30 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:border-white hover:bg-[#061b3a]/55">Research Guides</Link>
-            </div>
-            <div className="mt-10 flex items-center gap-3 border-t border-white/25 pt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#d1dce2]"><ShieldCheck size={16} /> For research use only</div>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
 
       <section className="border-b border-[#bad4de] bg-[#d8edf4]">
         <div className="mx-auto grid max-w-7xl gap-px bg-[#b8d4df] sm:grid-cols-3">
