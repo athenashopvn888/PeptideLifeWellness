@@ -78,7 +78,7 @@ export default function HomePage() {
 
       <section className="relative isolate min-h-[260px] overflow-hidden border-b border-[#b9c7cf] sm:min-h-[340px]" aria-label="Nova Pure Labs laboratory research visual">
         <Image src="/images/nova-arctic/arctic-lab-wide.png" alt="Arctic cyan laboratory with glassware and microscope" fill sizes="100vw" className="object-cover object-center" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,21,48,.82)_0%,rgba(12,64,92,.58)_34%,rgba(255,255,255,.02)_70%)]" />
+        <div className="absolute inset-0 bg-[rgba(4,21,48,.72)] sm:bg-[linear-gradient(90deg,rgba(4,21,48,.82)_0%,rgba(12,64,92,.58)_34%,rgba(255,255,255,.02)_70%)]" />
         <div className="relative mx-auto flex min-h-[260px] max-w-7xl items-center px-4 py-12 text-white sm:min-h-[340px] sm:px-6 lg:px-8">
           <div className="max-w-lg">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-200">Nova Pure Labs</p>
