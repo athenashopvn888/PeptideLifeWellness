@@ -22,7 +22,7 @@ Use the supplied VIP-inspired reference as the design direction, without copying
 
 Each catalogue bottle will use:
 
-- the existing clear research vial and black/silver cap;
+- the existing clear research vial with a deep arctic-blue upper cap and metallic silver lower cap band;
 - a silver main label panel;
 - a black vertical brand strip on the left;
 - the Nova Pure Labs symbol plus vertical `NOVA PURE LABS` branding;
