@@ -17,55 +17,49 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://novapurelabs.ca'),
+  metadataBase: new URL('https://peptidelifewellness.com'),
   title: {
-    template: '%s | NovaPure Labs',
-    default: 'NovaPure Labs | Lab-Tested Research Peptides, 99%+ Purity',
+    template: '%s | Nova Pure Labs',
+    default: 'Nova Pure Labs | Research Products',
   },
   description:
-    'Pharmaceutical-grade research peptides, independently verified for 99%+ purity. COA included with every order. Free peptide calculator, research guides, and wellness tracker.',
+    'Explore the Nova Pure Labs draft research product catalogue, educational guides, calculator, and safety information.',
   keywords: [
-    'research peptides Canada',
-    'buy peptides Canada',
-    'lab-tested peptides',
-    'pharmaceutical grade peptides',
-    'peptide purity testing',
-    'BPC-157 Canada',
-    'semaglutide Canada',
+    'research product catalogue',
+    'research peptides',
+    'BPC-157 research',
+    'retatrutide research',
     'peptide calculator',
-    'peptide COA',
-    'HPLC tested peptides',
-    'NovaPure Labs',
-    'peptide reconstitution calculator',
+    'Nova Pure Labs',
     'TB-500',
     'ipamorelin',
   ],
-  authors: [{ name: 'NovaPure Labs' }],
-  creator: 'NovaPure Labs',
-  publisher: 'NovaPure Labs',
+  authors: [{ name: 'Nova Pure Labs' }],
+  creator: 'Nova Pure Labs',
+  publisher: 'Nova Pure Labs',
   openGraph: {
     type: 'website',
     locale: 'en_CA',
-    url: 'https://novapurelabs.ca',
-    siteName: 'NovaPure Labs',
-    title: 'NovaPure Labs | Lab-Tested Research Peptides, 99%+ Purity',
+    url: 'https://peptidelifewellness.com',
+    siteName: 'Nova Pure Labs',
+    title: 'Nova Pure Labs | Research Products',
     description:
-      'Pharmaceutical-grade research peptides, independently verified for 99%+ purity. COA included with every order.',
+      'Explore the Nova Pure Labs draft research product catalogue and educational resources.',
     images: [
       {
-        url: '/images/novapure-banner.png',
+        url: '/products/nova-pure-drafts/bpc-157-10mg.png',
         width: 1200,
         height: 630,
-        alt: 'NovaPure Labs',
+        alt: 'Nova Pure Labs',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NovaPure Labs | Lab-Tested Research Peptides, 99%+ Purity',
+    title: 'Nova Pure Labs | Research Products',
     description:
-      'Pharmaceutical-grade research peptides, independently verified for 99%+ purity.',
-    images: ['/images/novapure-banner.png'],
+      'Explore the Nova Pure Labs draft research product catalogue and educational resources.',
+    images: ['/products/nova-pure-drafts/bpc-157-10mg.png'],
   },
   robots: {
     index: true,
@@ -79,7 +73,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://novapurelabs.ca',
+    canonical: 'https://peptidelifewellness.com',
   },
 };
 
@@ -115,11 +109,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'NovaPure Labs',
+              name: 'Nova Pure Labs',
               url: 'https://peptidelifewellness.com',
-              logo: 'https://peptidelifewellness.com/images/novapure-circle.png',
+              logo: 'https://peptidelifewellness.com/images/nova-pure-logo-black.png',
               description:
-                'Pharmaceutical-grade research peptides. Third-party HPLC tested, 99%+ purity. COA included with every order. Canadian-sourced.',
+                'Nova Pure Labs research product catalogue and educational resources.',
               foundingDate: '2024',
               areaServed: 'CA',
               contactPoint: {
@@ -138,14 +132,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
-              name: 'NovaPure Labs',
+              name: 'Nova Pure Labs',
               url: 'https://peptidelifewellness.com',
-              description: 'Lab-tested research peptides, 99%+ purity. Comparisons, stacking guides, and research resources.',
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: 'https://peptidelifewellness.com/shop?q={search_term_string}',
-                'query-input': 'required name=search_term_string',
-              },
+              description: 'Research product catalogue, guides, calculator, and safety information.',
             }),
           }}
         />

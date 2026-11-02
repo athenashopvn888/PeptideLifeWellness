@@ -1,13 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Heart } from 'lucide-react';
 
 const footerLinks = {
   'Product': [
-    { href: '/quiz', label: 'Wellness Quiz' },
-    { href: '/calculator', label: 'Peptide Calculator' },
-    { href: '/tracker', label: 'Tracker App' },
-    { href: '/journal', label: 'Wellness Journal' },
+    { href: '/products', label: 'All Products' },
+    { href: '/calculator', label: 'Research Calculator' },
+    { href: '/quiz', label: 'Research Quiz' },
   ],
   'Education': [
     { href: '/guides', label: 'Guide Library' },
@@ -26,31 +24,30 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white" id="site-footer">
+    <footer className="bg-black text-white" id="site-footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Top section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="mb-5 block">
               <Image
-                src="/images/novapure-circle.png"
-                alt="NovaPure Labs"
-                width={32}
-                height={32}
-                className="rounded-full"
+                src="/images/nova-pure-logo-black.png"
+                alt="Nova Pure Labs"
+                width={360}
+                height={120}
+                className="h-auto w-48 invert"
               />
-              <span className="font-bold text-lg">NovaPure Labs</span>
             </Link>
-            <p className="text-sm text-gray-light leading-relaxed">
-              Pharmaceutical-grade research peptides. Third-party tested. COA with every order.
+            <p className="text-sm leading-relaxed text-white/55">
+              A clear, research-only product catalogue. Pricing and ordering information will be posted when confirmed.
             </p>
           </div>
 
           {/* Link columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="font-semibold text-sm uppercase tracking-wider text-gray-light mb-4">
+              <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/45">
                 {category}
               </h3>
               <ul className="space-y-3">
@@ -73,7 +70,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="bg-white/5 rounded-xl p-6">
             <p className="text-xs text-white/50 leading-relaxed">
-              <strong className="text-white/70">Disclaimer:</strong> NovaPure Labs provides educational content, research tools, and lab-tested research compounds. This platform does not provide medical advice, diagnosis, treatment, prescription guidance, or dosing instructions. All products are for research purposes only. Always speak with a licensed healthcare professional before using prescription, injectable, or regulated health products.
+              <strong className="text-white/70">Disclaimer:</strong> Nova Pure Labs provides research catalogue information and educational tools. This platform does not provide medical advice, diagnosis, treatment, prescription guidance, or dosing instructions. Catalogue products are for research use only and are not for human consumption.
             </p>
           </div>
         </div>
@@ -81,11 +78,9 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} NovaPure Labs. All rights reserved.
+            © {new Date().getFullYear()} Nova Pure Labs. All rights reserved.
           </p>
-          <p className="flex items-center gap-1 text-xs text-white/40">
-            Built with <Heart size={12} className="text-green" /> for precision research
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">Research use only</p>
         </div>
       </div>
     </footer>

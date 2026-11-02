@@ -2,14 +2,14 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'NovaPure Labs',
-    short_name: 'NovaPure',
+    name: 'Nova Pure Labs',
+    short_name: 'Nova Pure',
     description:
-      'Lab-tested research peptides, 99%+ purity. Free peptide calculator, research guides, and wellness tracker.',
+      'Research product catalogue, educational guides, calculator, and safety information.',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#0f1b2d',
+    theme_color: '#000000',
     orientation: 'portrait',
     categories: ['health', 'education', 'lifestyle'],
     icons: [
