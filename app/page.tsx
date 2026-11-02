@@ -27,7 +27,19 @@ export default function HomePage() {
   return (
     <div className="bg-[#eaf8fc] text-[#13283b]">
       <section className="relative isolate min-h-[600px] overflow-hidden border-b border-[#8fb6c5] bg-[#061b3a] sm:min-h-[560px]">
-        <Image src="/images/nova-arctic/arctic-lab-wide.png" alt="Arctic cyan laboratory with glassware and microscope" fill sizes="100vw" priority className="object-cover object-[68%_center] sm:object-center" />
+        <video
+          aria-hidden="true"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/images/nova-arctic/arctic-lab-wide.png"
+          className="absolute inset-0 h-full w-full object-cover object-center motion-reduce:hidden"
+        >
+          <source src="/videos/arctic-lab-loop.mp4" type="video/mp4" />
+        </video>
+        <Image src="/images/nova-arctic/arctic-lab-wide.png" alt="" fill sizes="100vw" priority className="hidden object-cover object-[68%_center] motion-reduce:block sm:object-center" />
         <div className="absolute inset-0 bg-[rgba(4,21,48,.78)] sm:bg-[linear-gradient(90deg,rgba(4,21,48,.92)_0%,rgba(4,35,65,.78)_38%,rgba(5,45,72,.22)_72%,rgba(255,255,255,.03)_100%)]" />
         <div className="absolute inset-0 opacity-25 [background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.2)_0,rgba(255,255,255,.2)_1px,transparent_1px,transparent_12px)]" />
         <div className="relative mx-auto flex min-h-[600px] max-w-7xl items-center px-4 py-16 sm:min-h-[560px] sm:px-6 lg:px-8">
