@@ -22,16 +22,16 @@ export default function Header() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#b9d4df] bg-[#effafd]/95 text-[#061b3a] shadow-[0_8px_25px_rgba(6,27,58,.08)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[#b9d4df] bg-white/95 text-[#061b3a] shadow-[0_8px_25px_rgba(6,27,58,.08)] backdrop-blur-xl">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
         <Link href="/" className="flex items-center" id="header-logo" aria-label="Nova Pure Labs home">
           <Image
-            src="/images/nova-arctic/logo-silver-metallic-tight.png"
+            src="/images/nova-arctic/logo-navy-exact.png"
             alt="Nova Pure Labs"
-            width={1615}
-            height={500}
+            width={560}
+            height={248}
             priority
-            className="h-auto w-48 sm:w-56"
+            className="h-auto w-48 grayscale contrast-[300%] sm:w-56"
           />
         </Link>
 
