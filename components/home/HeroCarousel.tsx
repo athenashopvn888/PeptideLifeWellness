@@ -21,7 +21,7 @@ const slides = [
     imageAlt: 'Unlabelled laboratory vials on a reflective surface',
     imageClass: 'object-cover object-[68%_center]',
     eyebrow: 'Research Catalogue',
-    title: '18 products. Clearly presented.',
+    title: 'Explore our research catalogue.',
     description: 'Each listing pairs the supplied identity and strength with a dedicated detail page, research context, and an honest documentation status.',
     primary: { href: '/products', label: 'Browse Catalogue' },
     secondary: { href: '/safety-canada', label: 'Safety Information' },
