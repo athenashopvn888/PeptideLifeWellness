@@ -31,8 +31,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     .filter((relatedProduct) => relatedProduct !== undefined);
 
   return (
-    <div className="min-h-screen bg-[#f7f8f8] text-[#202327]">
-      <div className="border-b border-[#c7ccd0] bg-[linear-gradient(135deg,#ffffff,#e3e6e8)] px-4 py-5 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#eaf8fc] text-[#202327]">
+      <div className="border-b border-[#bfd8e1] bg-[linear-gradient(135deg,#ffffff,#dceff5)] px-4 py-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <Link href="/products" className="inline-flex items-center gap-2 text-sm font-bold text-[#526f82] transition hover:text-[#202327]"><ArrowLeft size={16} /> All products</Link>
         </div>
@@ -98,7 +98,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </section>
 
       {relatedProducts.length > 0 ? (
-        <section className="border-t border-[#c7ccd0] bg-[linear-gradient(135deg,#dfe3e6,#f7f8f8)] px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <section className="border-t border-[#bfd8e1] bg-[linear-gradient(135deg,#d8edf4,#f2fbfd)] px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="flex items-end justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[0.26em] text-[#526f82]">Continue browsing</p><h2 className="mt-3 text-2xl font-black sm:text-3xl">Related catalogue products</h2></div><Link href="/products" className="hidden items-center gap-2 text-sm font-bold text-[#526f82] sm:inline-flex">All products <ArrowRight size={16} /></Link></div>
             <div className="mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:gap-6">{relatedProducts.map((relatedProduct) => <DraftProductCard key={relatedProduct.slug} product={relatedProduct} />)}</div>
