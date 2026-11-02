@@ -4,9 +4,9 @@ import type { DraftProduct } from '@/lib/data/draftProducts';
 
 export default function DraftProductCard({ product }: { product: DraftProduct }) {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-[#c8cdd2] bg-gradient-to-b from-white to-[#eef0f1] shadow-[0_12px_35px_rgba(32,35,39,0.08)] transition hover:-translate-y-1 hover:border-[#91a0aa] hover:shadow-[0_20px_45px_rgba(32,35,39,0.14)]">
+    <article className="group overflow-hidden rounded-2xl border border-[#bdd5df] bg-gradient-to-b from-white to-[#e4f4f8] shadow-[0_12px_35px_rgba(6,27,58,0.08)] transition hover:-translate-y-1 hover:border-[#81a9b8] hover:shadow-[0_20px_45px_rgba(6,27,58,0.14)]">
       <Link href={`/products/${product.slug}`} className="block" aria-label={`View details for ${product.name} ${product.strength}`}>
-        <div className="relative aspect-square overflow-hidden border-b border-[#d5d9dc] bg-[radial-gradient(circle_at_50%_32%,#ffffff_0%,#eef0f2_58%,#d6dade_100%)]">
+        <div className="relative aspect-square overflow-hidden border-b border-[#cbdde4] bg-[radial-gradient(circle_at_50%_32%,#ffffff_0%,#e7f6f9_58%,#cbdfe6_100%)]">
           <div className="absolute inset-x-[12%] bottom-[8%] h-[8%] rounded-full bg-[#65717a]/15 blur-xl" />
           <Image
             src={product.image}

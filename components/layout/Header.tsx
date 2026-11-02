@@ -22,16 +22,16 @@ export default function Header() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#c6cbd0] bg-[#f8f9f9]/95 text-[#202327] shadow-[0_8px_25px_rgba(32,35,39,.05)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[#b9d4df] bg-[#effafd]/95 text-[#061b3a] shadow-[0_8px_25px_rgba(6,27,58,.08)] backdrop-blur-xl">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
         <Link href="/" className="flex items-center" id="header-logo" aria-label="Nova Pure Labs home">
           <Image
-            src="/images/nova-arctic/logo-horizontal-cyan.png"
+            src="/images/nova-arctic/logo-silver-metallic-tight.png"
             alt="Nova Pure Labs"
-            width={710}
-            height={230}
+            width={1615}
+            height={500}
             priority
-            className="h-auto w-44 sm:w-52"
+            className="h-auto w-48 sm:w-56"
           />
         </Link>
 
@@ -40,7 +40,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${isActive(link.href) ? 'bg-[#526f82] text-white shadow-sm' : 'text-[#59636a] hover:bg-[#dfe3e6] hover:text-[#202327]'}`}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${isActive(link.href) ? 'bg-[#123d63] text-white shadow-sm' : 'text-[#40586b] hover:bg-[#d8edf4] hover:text-[#061b3a]'}`}
             >
               {link.label}
             </Link>
@@ -50,7 +50,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsOpen((open) => !open)}
-          className="rounded-full border border-[#aeb6bc] bg-white/60 p-2.5 lg:hidden"
+          className="rounded-full border border-[#a9c6d1] bg-white/65 p-2.5 lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
           id="mobile-menu-toggle"
@@ -60,14 +60,14 @@ export default function Header() {
       </div>
 
       {isOpen && (
-        <nav className="border-t border-[#c7ccd0] bg-[#f7f8f8] px-4 py-4 lg:hidden" id="mobile-menu" aria-label="Mobile navigation">
+        <nav className="border-t border-[#bed7e0] bg-[#eaf8fc] px-4 py-4 lg:hidden" id="mobile-menu" aria-label="Mobile navigation">
           <div className="mx-auto max-w-7xl space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block rounded-xl px-4 py-3 text-sm font-semibold ${isActive(link.href) ? 'bg-[#526f82] text-white' : 'text-[#59636a] hover:bg-[#e3e6e8] hover:text-[#202327]'}`}
+                className={`block rounded-xl px-4 py-3 text-sm font-semibold ${isActive(link.href) ? 'bg-[#123d63] text-white' : 'text-[#40586b] hover:bg-[#d8edf4] hover:text-[#061b3a]'}`}
               >
                 {link.label}
               </Link>

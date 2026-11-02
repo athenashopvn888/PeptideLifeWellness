@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen bg-[#f7f8f8] text-[#202327]">
-      <section className="relative overflow-hidden border-b border-[#bcc2c8] bg-[linear-gradient(135deg,#ffffff_0%,#e9ecee_55%,#cbd0d4_100%)] px-4 py-16 sm:py-24">
+    <div className="min-h-screen bg-[#eaf8fc] text-[#202327]">
+      <section className="relative overflow-hidden border-b border-[#b7d3de] bg-[linear-gradient(135deg,#f8fdff_0%,#e1f3f8_55%,#c5e3ed_100%)] px-4 py-16 sm:py-24">
         <div className="absolute inset-0 opacity-45 [background-image:linear-gradient(115deg,transparent_0%,white_42%,transparent_58%),repeating-linear-gradient(90deg,rgba(255,255,255,.35)_0,rgba(255,255,255,.35)_1px,transparent_1px,transparent_10px)]" />
         <Image src="/images/nova-arctic/molecular-structure-square.png" alt="" width={440} height={443} className="absolute -right-20 -top-32 h-[420px] w-[420px] rounded-full object-cover opacity-20 mix-blend-multiply sm:right-[18%]" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[1fr_300px] lg:grid-cols-[1fr_360px]">
