@@ -32,11 +32,11 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="mb-5 block">
               <Image
-                src="/images/nova-pure-logo-black.png"
+                src="/images/nova-arctic/logo-horizontal-white.png"
                 alt="Nova Pure Labs"
-                width={360}
-                height={120}
-                className="h-auto w-48 invert"
+                width={680}
+                height={245}
+                className="h-auto w-52 rounded-sm"
               />
             </Link>
             <p className="text-sm leading-relaxed text-white/55">

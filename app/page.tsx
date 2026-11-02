@@ -44,6 +44,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative min-h-[420px] lg:min-h-[560px]" aria-label="Nova Pure Labs product collection">
+            <Image src="/images/nova-arctic/molecular-structure-square.png" alt="" width={440} height={443} className="absolute right-[-12%] top-[-10%] h-[58%] w-[58%] rounded-full object-cover opacity-[0.13] mix-blend-multiply" />
             <div className="absolute left-1/2 top-1/2 h-[84%] w-[84%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/80 bg-[radial-gradient(circle,#ffffff_0%,rgba(255,255,255,.58)_50%,transparent_72%)] shadow-[inset_0_0_70px_rgba(82,111,130,.16)]" />
             <div className="absolute inset-x-[12%] bottom-[6%] h-[11%] rounded-full bg-[#34434e]/20 blur-2xl" />
             <div className="absolute left-[2%] top-[15%] w-[44%] -rotate-6 overflow-hidden rounded-3xl border border-white bg-white/80 shadow-[0_30px_60px_rgba(32,35,39,.22)]"><Image src="/products/nova-pure-drafts/bpc-157-10mg.png" alt="BPC-157 10 mg Nova Pure Labs research vial" width={1254} height={1254} priority className="h-auto w-full" /></div>
@@ -75,8 +76,20 @@ export default function HomePage() {
         </div></div>
       </section>
 
+      <section className="relative isolate min-h-[260px] overflow-hidden border-b border-[#b9c7cf] sm:min-h-[340px]" aria-label="Nova Pure Labs laboratory research visual">
+        <Image src="/images/nova-arctic/arctic-lab-wide.png" alt="Arctic cyan laboratory with glassware and microscope" fill sizes="100vw" className="object-cover object-center" />
+        <div className="absolute inset-0 bg-[rgba(4,21,48,.72)] sm:bg-[linear-gradient(90deg,rgba(4,21,48,.82)_0%,rgba(12,64,92,.58)_34%,rgba(255,255,255,.02)_70%)]" />
+        <div className="relative mx-auto flex min-h-[260px] max-w-7xl items-center px-4 py-12 text-white sm:min-h-[340px] sm:px-6 lg:px-8">
+          <div className="max-w-lg">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-200">Nova Pure Labs</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">Research presented clearly.</h2>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-white/75 sm:text-base">Catalogue facts and published research context remain clearly separated across every listing.</p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white px-4 py-16 sm:px-6 sm:py-24 lg:px-8"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-        <div><p className="text-xs font-bold uppercase tracking-[0.28em] text-[#526f82]">Research resources</p><h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-[#202327] sm:text-5xl">Useful tools, presented with restraint.</h2><p className="mt-6 max-w-xl leading-relaxed text-[#5d676e]">Browse educational material and research-use information without mixing it into unsupported product marketing.</p></div>
+        <div><p className="text-xs font-bold uppercase tracking-[0.28em] text-[#526f82]">Research resources</p><h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-[#202327] sm:text-5xl">Useful tools, presented with restraint.</h2><p className="mt-6 max-w-xl leading-relaxed text-[#5d676e]">Browse educational material and research-use information without mixing it into unsupported product marketing.</p><div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-3xl border border-[#c8d8df] shadow-[0_20px_45px_rgba(32,35,39,.12)]"><Image src="/images/nova-arctic/laboratory-glassware-square.png" alt="Arctic cyan laboratory glassware" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover object-[center_62%]" /><div className="absolute inset-0 ring-1 ring-inset ring-white/60" /></div></div>
         <div className="grid gap-4 sm:grid-cols-3">{resources.map(({ href, label, detail, icon: Icon }) => <Link key={href} href={href} className="group rounded-2xl border border-[#c8cdd2] bg-[linear-gradient(145deg,#ffffff,#eef0f1)] p-6 transition hover:-translate-y-1 hover:border-[#7e949f] hover:shadow-xl"><div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#526f82] text-white shadow-md"><Icon size={20} /></div><h3 className="mt-5 font-bold text-[#202327]">{label}</h3><p className="mt-2 text-sm leading-relaxed text-[#667078]">{detail}</p><span className="mt-5 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.15em] text-[#526f82]">Open <ArrowRight size={13} className="transition group-hover:translate-x-1" /></span></Link>)}</div>
       </div></section>
 

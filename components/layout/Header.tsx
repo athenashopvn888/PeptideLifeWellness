@@ -26,10 +26,10 @@ export default function Header() {
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
         <Link href="/" className="flex items-center" id="header-logo" aria-label="Nova Pure Labs home">
           <Image
-            src="/images/nova-pure-logo-black.png"
+            src="/images/nova-arctic/logo-horizontal-cyan.png"
             alt="Nova Pure Labs"
-            width={360}
-            height={120}
+            width={710}
+            height={230}
             priority
             className="h-auto w-44 sm:w-52"
           />
