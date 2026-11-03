@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, ExternalLink, FileText, FlaskConical, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, FileCheck2, FileText, FlaskConical, ShieldCheck } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import DraftProductCard from '@/components/products/DraftProductCard';
 import { draftProducts, getDraftProduct } from '@/lib/data/draftProducts';
@@ -53,7 +53,27 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
               <div className="mt-9 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[#c7ccd0] bg-[#c7ccd0]">
                 <div className="bg-[linear-gradient(145deg,#ffffff,#edf0f1)] p-5"><p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#69747b]">Price</p><p className="mt-2 text-3xl font-black">TBA</p></div>
-                <div className="bg-[linear-gradient(145deg,#ffffff,#edf0f1)] p-5"><p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#69747b]">Documentation</p><p className="mt-2 text-base font-black">Not yet posted</p></div>
+                <div className="bg-[linear-gradient(145deg,#ffffff,#edf0f1)] p-5"><p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#69747b]">COA status</p><p className="mt-2 text-base font-black">{product.coa?.status === 'available' ? 'Available' : 'Not yet posted'}</p></div>
+              </div>
+
+              <div className="mt-5 rounded-2xl border border-[#9bbbc8] bg-[linear-gradient(135deg,#e6f5f9,#ffffff)] p-5 shadow-[0_12px_30px_rgba(6,27,58,.07)]">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#123d63] text-white"><FileCheck2 size={21} /></div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#526f82]">Certificate of Analysis</p>
+                    {product.coa?.status === 'available' && product.coa.documentUrl ? (
+                      <>
+                        <p className="mt-2 text-sm leading-relaxed text-[#566169]">Review the posted certificate and confirm its batch or lot number matches the product record.</p>
+                        <a href={product.coa.documentUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#123d63] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#061b3a]">View COA <ExternalLink size={15} /></a>
+                      </>
+                    ) : (
+                      <>
+                        <p className="mt-2 text-sm leading-relaxed text-[#566169]">A product-specific certificate has not been posted. No purity, identity, or batch result is implied.</p>
+                        <Link href="/coa" className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#8caebb] bg-white px-5 py-2.5 text-sm font-bold text-[#123d63] transition hover:border-[#123d63]">Check COA Library <ArrowRight size={15} /></Link>
+                      </>
+                    )}
+                  </div>
+                </div>
               </div>
 
               <div className="mt-7 space-y-3">

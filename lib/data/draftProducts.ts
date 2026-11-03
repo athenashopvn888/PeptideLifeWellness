@@ -8,6 +8,13 @@ export type DraftProduct = {
   catalogueFacts: string[];
   researchReferences: { label: string; url: string }[];
   relatedSlugs: string[];
+  coa?: {
+    status: 'available' | 'pending';
+    documentUrl?: string;
+    batchLot?: string;
+    testedAt?: string;
+    laboratory?: string;
+  };
 };
 
 const imageRoot = '/products/nova-pure-drafts';
@@ -162,6 +169,15 @@ export const draftProducts: DraftProduct[] = [
     catalogueFacts: ['Synthetic nonapeptide', 'Sleep-related neurophysiology research'],
     researchReferences: [{ label: 'DSIP sequence and activity study', url: 'https://pubmed.ncbi.nlm.nih.gov/568769/' }],
     relatedSlugs: ['semax-10mg', 'selank-10mg'],
+  },
+  {
+    slug: 'bacteriostatic-water-10ml', name: 'Bacteriostatic Water', strength: '10 mL', image: `${imageRoot}/bacteriostatic-water-10ml.png`,
+    category: 'Research ancillary',
+    overview: 'This 10 mL bacteriostatic water listing is presented as a research ancillary. The formulation specification, sterility documentation, preservative concentration, and analytical certificate have not yet been supplied, so this catalogue does not infer or publish those details.',
+    catalogueFacts: ['10 mL research ancillary listing', 'Formulation and supporting documentation pending'],
+    researchReferences: [],
+    relatedSlugs: ['nad-plus-500mg', 'bpc-157-10mg'],
+    coa: { status: 'pending' },
   },
 ];
 
