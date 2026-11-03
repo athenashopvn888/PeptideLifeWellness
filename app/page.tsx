@@ -31,7 +31,7 @@ export default function HomePage() {
 
       <section className="border-b border-[#bad4de] bg-[#d8edf4]">
         <div className="mx-auto grid max-w-7xl gap-px bg-[#b8d4df] sm:grid-cols-3">
-          {[["18", "Research products"], ["TBA", "Pricing status"], ["18", "Detailed listings"]].map(([value, label]) => (
+          {[[String(draftProducts.length), "Research products"], ["TBA", "Pricing status"], [String(draftProducts.length), "Detailed listings"]].map(([value, label]) => (
             <div key={label} className="bg-[linear-gradient(145deg,#f8fdff,#e0f2f7)] px-5 py-7 text-center sm:py-9"><p className="text-2xl font-black text-[#061b3a] sm:text-3xl">{value}</p><p className="mt-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#517083] sm:text-xs">{label}</p></div>
           ))}
         </div>
@@ -39,7 +39,7 @@ export default function HomePage() {
 
       <section className="bg-[#eaf8fc] px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="text-xs font-bold uppercase tracking-[0.28em] text-[#526f82]">New catalogue</p><h2 className="mt-3 text-3xl font-black tracking-tight text-[#202327] sm:text-5xl">Featured products</h2></div><Link href="/products" className="inline-flex items-center gap-2 text-sm font-bold text-[#526f82] transition hover:gap-3 hover:text-[#202327]">View all 18 products <ArrowRight size={17} /></Link></div>
+          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="text-xs font-bold uppercase tracking-[0.28em] text-[#526f82]">New catalogue</p><h2 className="mt-3 text-3xl font-black tracking-tight text-[#202327] sm:text-5xl">Featured products</h2></div><Link href="/products" className="inline-flex items-center gap-2 text-sm font-bold text-[#526f82] transition hover:gap-3 hover:text-[#202327]">View all {draftProducts.length} products <ArrowRight size={17} /></Link></div>
           <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">{draftProducts.slice(0, 8).map((product) => <DraftProductCard key={product.slug} product={product} />)}</div>
         </div>
       </section>

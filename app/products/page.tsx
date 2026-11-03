@@ -20,7 +20,7 @@ export default function ProductsPage() {
             <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#526f82]">Nova Pure Labs</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-black tracking-tight text-[#202327] sm:text-6xl">Research product catalogue</h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#566169] sm:text-lg">
-              Browse 18 clearly identified research listings with sourced background information. Pricing and ordering details remain TBA.
+              Browse {draftProducts.length} clearly identified research listings with sourced background information. Pricing and ordering details remain TBA.
             </p>
           </div>
           <div className="relative hidden aspect-square overflow-hidden rounded-[2rem] border border-white/80 bg-white/55 shadow-[0_28px_60px_rgba(32,35,39,.16)] ring-1 ring-[#aeb7bd]/50 md:block">
