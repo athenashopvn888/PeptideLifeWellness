@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ExternalLink, FileCheck2, FileText, FlaskConical, ShieldCheck } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import AddToCartControls from '@/components/catalogue-cart/AddToCartControls';
 import DraftProductCard from '@/components/products/DraftProductCard';
 import { draftProducts, formatCas, getDraftProduct, getRelatedProducts } from '@/lib/data/draftProducts';
 
@@ -94,8 +95,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </div>
 
               <div className="mt-8 rounded-2xl border border-[#aeb8bf] bg-[linear-gradient(135deg,#e7ebed,#f9fafa)] p-5">
-                <p className="flex items-center gap-2 text-sm font-bold text-[#202327]"><ShieldCheck size={18} className="text-[#526f82]" /> Research-use catalogue listing</p>
-                <p className="mt-2 text-sm leading-relaxed text-[#657078]">Ordering is not yet available. This product is presented for laboratory research planning only and is not for human consumption.</p>
+                <p className="flex items-center gap-2 text-sm font-bold text-[#202327]"><ShieldCheck size={18} className="text-[#526f82]" /> Research-use order request</p>
+                <p className="mt-2 text-sm leading-relaxed text-[#657078]">Price TBA. Add this listing to your cart to request a quote. Payment is by Interac e-Transfer only, after we email instructions. These products are for laboratory research use only and are not for human or animal consumption.</p>
+                <AddToCartControls product={{ slug: product.slug, name: product.name, strength: product.strength }} variant="detail" />
               </div>
             </div>
           </div>

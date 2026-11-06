@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/app/', '/admin/', '/auth/'],
+        disallow: ['/app/', '/admin/', '/auth/', '/cart', '/order'],
       },
     ],
     sitemap: 'https://peptidelifewellness.com/sitemap.xml',
