@@ -13,8 +13,8 @@ export default function MobileBottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#b9d4df] bg-[#effafd] shadow-[0_-2px_10px_rgba(6,27,58,0.10)] sm:hidden" id="mobile-bottom-nav">
-      <div className="flex items-center justify-around h-16">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#b9d4df] bg-[#effafd]/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-2px_10px_rgba(6,27,58,0.10)] backdrop-blur-md sm:hidden" id="mobile-bottom-nav">
+      <div className="flex h-16 items-center justify-around">
         {navItems.map((item) => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
           return (

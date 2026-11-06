@@ -25,7 +25,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#061b3a] text-white" id="site-footer">
+    <footer className="bg-[#061b3a] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] text-white sm:pb-0" id="site-footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Top section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
