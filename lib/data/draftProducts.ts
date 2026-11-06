@@ -32,7 +32,7 @@ const imageRoot = '/products/nova-pure-drafts';
 
 export const draftProducts: DraftProduct[] = [
   {
-    slug: 'nad-plus-500mg', name: 'NAD+', strength: '500 mg', image: `${imageRoot}/nad-plus-500mg.png`,
+    slug: 'nad-plus-500mg', name: 'NAD+', strength: '500 mg', image: `${imageRoot}/nad-plus-500mg-bottle-mockup.webp`,
     category: 'Cellular metabolism',
     catalogueGroup: 'Metabolic',
     identity: { cas: ['53-84-9'], lot: '895-117-OA' },
@@ -42,7 +42,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['mots-c-40mg', 'ss-31-10mg'],
   },
   {
-    slug: 'retatrutide-10mg', name: 'Retatrutide', strength: '10 mg', image: `${imageRoot}/retatrutide-10mg.png`,
+    slug: 'retatrutide-10mg', name: 'Retatrutide', strength: '10 mg', image: `${imageRoot}/retatrutide-10mg-bottle-mockup.webp`,
     category: 'Metabolic receptor research',
     catalogueGroup: 'Metabolic',
     identity: { cas: ['2381089-83-2'], lot: '798-132-OA' },
@@ -52,7 +52,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['retatrutide-20mg', 'nad-plus-500mg'],
   },
   {
-    slug: 'retatrutide-20mg', name: 'Retatrutide', strength: '20 mg', image: `${imageRoot}/retatrutide-20mg.png`,
+    slug: 'retatrutide-20mg', name: 'Retatrutide', strength: '20 mg', image: `${imageRoot}/retatrutide-20mg-bottle-mockup.webp`,
     category: 'Metabolic receptor research',
     catalogueGroup: 'Metabolic',
     identity: { cas: ['2381089-83-2'], lot: '867-365-OA' },
@@ -62,7 +62,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['retatrutide-10mg', 'nad-plus-500mg'],
   },
   {
-    slug: 'glow-70mg', name: 'GLOW', strength: '70 mg', image: `${imageRoot}/glow-70mg.png`,
+    slug: 'glow-70mg', name: 'GLOW', strength: '70 mg', image: `${imageRoot}/glow-70mg-bottle-mockup.webp`,
     category: 'Multi-compound research blend',
     catalogueGroup: 'Blends',
     identity: { cas: ['137525-51-0', '77591-33-4'], unconfirmedCasCount: 1, lot: '354-879-OA' },
@@ -72,7 +72,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['ghk-cu-100mg', 'wolverine-10mg'],
   },
   {
-    slug: 'kpv-10mg', name: 'KPV', strength: '10 mg', image: `${imageRoot}/kpv-10mg.png`,
+    slug: 'kpv-10mg', name: 'KPV', strength: '10 mg', image: `${imageRoot}/kpv-10mg-bottle-mockup.webp`,
     category: 'Tripeptide research',
     catalogueGroup: 'Recovery',
     identity: { cas: ['67727-97-3'], lot: '853-572-OA' },
@@ -82,7 +82,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['bpc-157-10mg', 'ghk-cu-100mg'],
   },
   {
-    slug: 'tesamorelin-10mg', name: 'Tesamorelin', strength: '10 mg', image: `${imageRoot}/tesamorelin-10mg.png`,
+    slug: 'tesamorelin-10mg', name: 'Tesamorelin', strength: '10 mg', image: `${imageRoot}/tesamorelin-10mg-bottle-mockup.webp`,
     category: 'Growth-hormone-axis research',
     catalogueGroup: 'Signaling',
     identity: { cas: ['901758-09-6'], lot: '614-846-OA' },
@@ -92,7 +92,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['cjc-1295-no-dac-ipamorelin-10mg', 'mots-c-40mg'],
   },
   {
-    slug: 'mots-c-40mg', name: 'MOTS-c', strength: '40 mg', image: `${imageRoot}/mots-c-40mg.png`,
+    slug: 'mots-c-40mg', name: 'MOTS-c', strength: '40 mg', image: `${imageRoot}/mots-c-40mg-bottle-mockup.webp`,
     category: 'Mitochondrial signaling',
     catalogueGroup: 'Metabolic',
     identity: { cas: ['1627580-64-6'], lot: '768-490-OA' },
@@ -102,7 +102,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['ss-31-10mg', 'nad-plus-500mg'],
   },
   {
-    slug: 'tb-500-10mg', name: 'TB-500', strength: '10 mg', image: `${imageRoot}/tb-500-10mg.png`,
+    slug: 'tb-500-10mg', name: 'TB-500', strength: '10 mg', image: `${imageRoot}/tb-500-10mg-bottle-mockup.webp`,
     category: 'Thymosin-fragment research',
     catalogueGroup: 'Recovery',
     identity: { cas: ['77591-33-4'], lot: '624-867-OA' },
@@ -112,7 +112,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['bpc-157-10mg', 'wolverine-10mg'],
   },
   {
-    slug: 'bpc-157-10mg', name: 'BPC-157', strength: '10 mg', image: `${imageRoot}/bpc-157-10mg.png`,
+    slug: 'bpc-157-10mg', name: 'BPC-157', strength: '10 mg', image: `${imageRoot}/bpc-157-10mg-bottle-mockup.webp`,
     category: 'Pentadecapeptide research',
     catalogueGroup: 'Recovery',
     identity: { cas: ['137525-51-0'], lot: '754-736-OA' },
@@ -122,7 +122,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['tb-500-10mg', 'wolverine-10mg'],
   },
   {
-    slug: 'semax-10mg', name: 'Semax', strength: '10 mg', image: `${imageRoot}/semax-10mg.png`,
+    slug: 'semax-10mg', name: 'Semax', strength: '10 mg', image: `${imageRoot}/semax-10mg-bottle-mockup.webp`,
     category: 'Regulatory-peptide research',
     catalogueGroup: 'Cognitive',
     identity: { cas: ['80714-61-0'], lot: '274-598-OA' },
@@ -132,7 +132,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['selank-10mg', 'dsip-10mg'],
   },
   {
-    slug: 'ss-31-10mg', name: 'SS-31', strength: '10 mg', image: `${imageRoot}/ss-31-10mg.png`,
+    slug: 'ss-31-10mg', name: 'SS-31', strength: '10 mg', image: `${imageRoot}/ss-31-10mg-bottle-mockup.webp`,
     category: 'Mitochondrial peptide research',
     catalogueGroup: 'Metabolic',
     identity: { cas: ['736992-21-5'], lot: '561-089-OA' },
@@ -142,7 +142,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['mots-c-40mg', 'nad-plus-500mg'],
   },
   {
-    slug: 'pt-141-10mg', name: 'PT-141', strength: '10 mg', image: `${imageRoot}/pt-141-10mg.png`,
+    slug: 'pt-141-10mg', name: 'PT-141', strength: '10 mg', image: `${imageRoot}/pt-141-10mg-bottle-mockup.webp`,
     category: 'Melanocortin research',
     catalogueGroup: 'Signaling',
     identity: { cas: ['189691-06-3'], lot: '327-554-OA' },
@@ -152,7 +152,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['melanotan-ii-10mg', 'selank-10mg'],
   },
   {
-    slug: 'selank-10mg', name: 'Selank', strength: '10 mg', image: `${imageRoot}/selank-10mg.png`,
+    slug: 'selank-10mg', name: 'Selank', strength: '10 mg', image: `${imageRoot}/selank-10mg-bottle-mockup.webp`,
     category: 'Regulatory-peptide research',
     catalogueGroup: 'Cognitive',
     identity: { cas: ['129954-34-3'], lot: '436-758-OA' },
@@ -162,7 +162,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['semax-10mg', 'dsip-10mg'],
   },
   {
-    slug: 'wolverine-10mg', name: 'BPC-157 / TB-500 (Wolverine)', strength: '10 mg', image: `${imageRoot}/wolverine-10mg.png`,
+    slug: 'wolverine-10mg', name: 'BPC-157 / TB-500 (Wolverine)', strength: '10 mg', image: `${imageRoot}/wolverine-10mg-bottle-mockup.webp`,
     category: 'Multi-compound research blend',
     catalogueGroup: 'Blends',
     identity: { cas: ['137525-51-0', '77591-33-4'], lot: '143-657-OA' },
@@ -175,7 +175,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['bpc-157-10mg', 'tb-500-10mg'],
   },
   {
-    slug: 'ghk-cu-100mg', name: 'GHK-Cu', strength: '100 mg', image: `${imageRoot}/ghk-cu-100mg.png`,
+    slug: 'ghk-cu-100mg', name: 'GHK-Cu', strength: '100 mg', image: `${imageRoot}/ghk-cu-100mg-bottle-mockup.webp`,
     category: 'Copper-peptide research',
     catalogueGroup: 'Recovery',
     identity: { cas: ['89030-95-5'], lot: '687-962-OA' },
@@ -185,7 +185,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['glow-70mg', 'kpv-10mg'],
   },
   {
-    slug: 'cjc-1295-no-dac-ipamorelin-10mg', name: 'CJC-1295 No DAC / Ipamorelin', strength: '10 mg', image: `${imageRoot}/cjc-1295-no-dac-ipamorelin-10mg.png`,
+    slug: 'cjc-1295-no-dac-ipamorelin-10mg', name: 'CJC-1295 No DAC / Ipamorelin', strength: '10 mg', image: `${imageRoot}/cjc-1295-no-dac-ipamorelin-10mg-bottle-mockup.webp`,
     category: 'Growth-hormone-axis blend',
     catalogueGroup: 'Blends',
     identity: { cas: ['863288-34-0', '170851-70-4'], lot: '353-690-OA' },
@@ -198,7 +198,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['tesamorelin-10mg', 'mots-c-40mg'],
   },
   {
-    slug: 'melanotan-ii-10mg', name: 'Melanotan II (MT2)', strength: '10 mg', image: `${imageRoot}/melanotan-ii-10mg.png`,
+    slug: 'melanotan-ii-10mg', name: 'Melanotan II (MT2)', strength: '10 mg', image: `${imageRoot}/melanotan-ii-10mg-bottle-mockup.webp`,
     category: 'Melanocortin research',
     catalogueGroup: 'Signaling',
     identity: { cas: ['121062-08-6'], lot: '909-714-OA' },
@@ -208,7 +208,7 @@ export const draftProducts: DraftProduct[] = [
     relatedSlugs: ['pt-141-10mg', 'selank-10mg'],
   },
   {
-    slug: 'dsip-10mg', name: 'DSIP', strength: '10 mg', image: `${imageRoot}/dsip-10mg.png`,
+    slug: 'dsip-10mg', name: 'DSIP', strength: '10 mg', image: `${imageRoot}/dsip-10mg-bottle-mockup.webp`,
     category: 'Neuropeptide research',
     catalogueGroup: 'Cognitive',
     identity: { cas: ['62568-57-4'], lot: '591-429-OA' },
