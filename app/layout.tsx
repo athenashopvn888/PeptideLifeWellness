@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       'Explore the Nova Pure Labs draft research product catalogue and educational resources.',
     images: [
       {
-        url: '/products/nova-pure-drafts/bpc-157-10mg.png',
+        url: '/products/nova-pure-drafts/bpc-157-10mg-bottle-mockup.webp',
         width: 1200,
         height: 630,
         alt: 'Nova Pure Labs',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: 'Nova Pure Labs | Research Products',
     description:
       'Explore the Nova Pure Labs draft research product catalogue and educational resources.',
-    images: ['/products/nova-pure-drafts/bpc-157-10mg.png'],
+    images: ['/products/nova-pure-drafts/bpc-157-10mg-bottle-mockup.webp'],
   },
   robots: {
     index: true,
