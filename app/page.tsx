@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowRight, BookOpen, Calculator, FileSearch, ShieldCheck } from 'lucide-react';
 import DraftProductCard from '@/components/products/DraftProductCard';
 import HeroCarousel from '@/components/home/HeroCarousel';
-import { draftProducts } from '@/lib/data/draftProducts';
+import { draftProducts, postedCoaCount } from '@/lib/data/draftProducts';
 
 export const metadata: Metadata = {
   title: { absolute: 'Nova Pure Labs | Research Products' },
@@ -30,17 +30,21 @@ export default function HomePage() {
       <HeroCarousel />
 
       <section className="border-b border-[#bad4de] bg-[#d8edf4]">
-        <div className="mx-auto grid max-w-7xl gap-px bg-[#b8d4df] sm:grid-cols-3">
-          {[[String(draftProducts.length), "Research products"], ["TBA", "Pricing status"], [String(draftProducts.length), "Detailed listings"]].map(([value, label]) => (
-            <div key={label} className="bg-[linear-gradient(145deg,#f8fdff,#e0f2f7)] px-5 py-7 text-center sm:py-9"><p className="text-2xl font-black text-[#061b3a] sm:text-3xl">{value}</p><p className="mt-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#517083] sm:text-xs">{label}</p></div>
+        <div className="mx-auto grid max-w-7xl grid-cols-3 gap-px bg-[#b8d4df]">
+          {[
+            [String(draftProducts.length), 'Research products'],
+            [`${postedCoaCount()} of ${draftProducts.length}`, 'COAs posted'],
+            ['TBA', 'Pricing status'],
+          ].map(([value, label]) => (
+            <div key={label} className="bg-[linear-gradient(145deg,#f8fdff,#e0f2f7)] px-2 py-3 text-center sm:px-5 sm:py-4"><p className="text-lg font-black text-[#061b3a] sm:text-2xl">{value}</p><p className="mt-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#517083] sm:text-xs sm:tracking-[0.18em]">{label}</p></div>
           ))}
         </div>
       </section>
 
-      <section className="bg-[#eaf8fc] px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section className="bg-[#eaf8fc] px-4 pb-14 pt-5 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="text-xs font-bold uppercase tracking-[0.28em] text-[#526f82]">New catalogue</p><h2 className="mt-3 text-3xl font-black tracking-tight text-[#202327] sm:text-5xl">Featured products</h2></div><Link href="/products" className="inline-flex items-center gap-2 text-sm font-bold text-[#526f82] transition hover:gap-3 hover:text-[#202327]">View all {draftProducts.length} products <ArrowRight size={17} /></Link></div>
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">{draftProducts.slice(0, 8).map((product) => <DraftProductCard key={product.slug} product={product} />)}</div>
+          <div className="flex items-end justify-between gap-4"><div><p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#526f82] sm:text-xs">New catalogue</p><h2 className="mt-1 text-2xl font-black tracking-tight text-[#202327] sm:text-3xl">Featured products</h2></div><Link href="/products" className="inline-flex items-center gap-2 text-sm font-bold text-[#526f82] transition hover:gap-3 hover:text-[#202327]">View all {draftProducts.length} <ArrowRight size={16} /></Link></div>
+          <div className="mt-4 grid grid-cols-2 gap-3 sm:mt-6 sm:gap-6 lg:grid-cols-4">{draftProducts.slice(0, 8).map((product) => <DraftProductCard key={product.slug} product={product} />)}</div>
         </div>
       </section>
 

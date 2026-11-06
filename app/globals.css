@@ -290,7 +290,7 @@ body {
 
 /* Mobile bottom nav spacing */
 .has-bottom-nav {
-  padding-bottom: 64px;
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
 }
 
 @media (min-width: 640px) {
