@@ -4,7 +4,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, ShoppingBag, X } from 'lucide-react';
+import { useCatalogueCart } from '@/components/catalogue-cart/CatalogueCartProvider';
 
 const navLinks = [
   { href: '/products', label: 'Products' },
@@ -36,33 +37,36 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${isActive(link.href) ? 'bg-[#123d63] text-white shadow-sm' : 'text-[#40586b] hover:bg-[#d8edf4] hover:text-[#061b3a]'}`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <button
-          type="button"
-          onClick={() => setIsOpen((open) => !open)}
-          className="rounded-full border border-[#a9c6d1] bg-white/65 p-2.5 lg:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-          id="mobile-menu-toggle"
-        >
-          {isOpen ? <X size={21} /> : <Menu size={21} />}
-        </button>
+        <div className="flex items-center gap-1">
+          <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${isActive(link.href) ? 'bg-[#123d63] text-white shadow-sm' : 'text-[#40586b] hover:bg-[#d8edf4] hover:text-[#061b3a]'}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <CartMenuLink />
+          <button
+            type="button"
+            onClick={() => setIsOpen((open) => !open)}
+            className="rounded-full border border-[#a9c6d1] bg-white/65 p-2.5 lg:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            id="mobile-menu-toggle"
+          >
+            {isOpen ? <X size={21} /> : <Menu size={21} />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (
         <nav className="border-t border-[#bed7e0] bg-[#eaf8fc] px-4 py-4 lg:hidden" id="mobile-menu" aria-label="Mobile navigation">
           <div className="mx-auto max-w-7xl space-y-1">
+            <Link href="/cart" onClick={() => setIsOpen(false)} className="block rounded-xl px-4 py-3 text-sm font-semibold text-[#40586b] hover:bg-[#d8edf4] hover:text-[#061b3a]">Cart</Link>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -77,5 +81,27 @@ export default function Header() {
         </nav>
       )}
     </header>
+  );
+}
+
+function CartMenuLink() {
+  const { itemCount, ready } = useCatalogueCart();
+  const count = ready ? itemCount : 0;
+  const label = ready ? `Cart, ${count} ${count === 1 ? 'item' : 'items'}` : 'Cart';
+
+  return (
+    <Link
+      href="/cart"
+      id="header-cart-link"
+      aria-label={label}
+      className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#a9c6d1] bg-white/65 text-[#061b3a] transition hover:bg-[#d8edf4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123d63]"
+    >
+      <ShoppingBag size={20} aria-hidden="true" />
+      {ready ? (
+        <span aria-hidden="true" className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#123d63] px-1 text-[10px] font-bold text-white">
+          {count > 99 ? '99+' : count}
+        </span>
+      ) : null}
+    </Link>
   );
 }

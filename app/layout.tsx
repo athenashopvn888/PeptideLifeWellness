@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnnouncementBar from '@/components/layout/AnnouncementBar';
 import MobileBottomNav from '@/components/layout/MobileBottomNav';
+import { CatalogueCartProvider } from '@/components/catalogue-cart/CatalogueCartProvider';
 import { CartProvider } from '@/components/cart/CartProvider';
 import CartDrawer from '@/components/cart/CartDrawer';
 import AgeVerificationGate from '@/components/ui/AgeVerificationGate';
@@ -139,6 +140,7 @@ export default function RootLayout({
           }}
         />
         <CartProvider>
+          <CatalogueCartProvider>
           <PublicChromeWrapper>
             <AgeVerificationGate />
             <AnnouncementBar />
@@ -150,6 +152,7 @@ export default function RootLayout({
             <Footer />
             <MobileBottomNav />
           </PublicChromeWrapper>
+          </CatalogueCartProvider>
         </CartProvider>
       </body>
     </html>

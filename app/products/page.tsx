@@ -15,7 +15,7 @@ export default function ProductsPage() {
       <CompactPageHeader
         eyebrow="Nova Pure Labs"
         title="Research product catalogue"
-        description={`Browse ${draftProducts.length} clearly identified research listings. Pricing and ordering remain TBA.`}
+        description={`Browse ${draftProducts.length} clearly identified research listings. Prices are TBA. Use the cart to request a quote.`}
       />
       <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
         <ProductCatalogue products={draftProducts} />

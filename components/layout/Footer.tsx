@@ -4,6 +4,7 @@ import Image from 'next/image';
 const footerLinks = {
   'Product': [
     { href: '/products', label: 'All Products' },
+    { href: '/cart', label: 'Cart' },
     { href: '/coa', label: 'COA Library' },
     { href: '/calculator', label: 'Research Calculator' },
     { href: '/quiz', label: 'Research Quiz' },
@@ -41,7 +42,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm leading-relaxed text-white/55">
-              A clear, research-only product catalogue. Pricing and ordering information will be posted when confirmed.
+              A clear, research-only product catalogue. Prices stay TBA until a quote is emailed.
             </p>
           </div>
 
@@ -71,7 +72,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="bg-white/5 rounded-xl p-6">
             <p className="text-xs text-white/50 leading-relaxed">
-              <strong className="text-white/70">Disclaimer:</strong> Nova Pure Labs provides research catalogue information and educational tools. This platform does not provide medical advice, diagnosis, treatment, prescription guidance, or dosing instructions. Catalogue products are for research use only and are not for human consumption.
+              <strong className="text-white/70">Disclaimer:</strong> Nova Pure Labs provides research catalogue information and educational tools. This platform does not provide medical advice, diagnosis, treatment, prescription guidance, or dosing instructions. Catalogue products are for research use only and are not for human or animal consumption.
             </p>
           </div>
         </div>

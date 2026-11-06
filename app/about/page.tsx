@@ -28,7 +28,7 @@ const principles = [
   {
     icon: ShieldCheck,
     title: 'Research use only',
-    desc: 'This site does not give medical advice, dosing guidance, or treatment claims. Ordering is not available.',
+    desc: 'This site does not give medical advice, dosing guidance, or treatment claims. An order request asks for a quote. Payment is not taken on this site.',
   },
 ];
 
@@ -48,8 +48,8 @@ export default function AboutPage() {
     posted === 0
       ? 'No certificates of analysis are posted yet. The COA Library marks every item pending.'
       : `${posted} of ${listings} certificates of analysis are posted. The rest stay pending.`,
-    'Pricing is TBA. There is no cart and no ordering.',
-    'A Canadian catalogue. Ships in Canada when ordering is available.',
+    'Pricing is TBA. The cart collects an order request and does not show a price or a total.',
+    'A Canadian catalogue. A quote email confirms the next step for shipping.',
   ];
 
   return (
@@ -90,7 +90,7 @@ export default function AboutPage() {
             {[
               ['The record', 'Buyers often see purity and testing language with no document attached. This catalogue does not repeat those claims.'],
               ['The choice', 'List the product identity that is actually supplied, and keep pricing, storage, and certificates marked pending until they are confirmed.'],
-              ['Today', `${listings} listings are public. ${posted === 0 ? 'No certificate of analysis has been posted.' : `${posted} of ${listings} certificates are posted.`} Ordering is not open.`],
+              ['Today', `${listings} listings are public. ${posted === 0 ? 'No certificate of analysis has been posted.' : `${posted} of ${listings} certificates are posted.`} Order requests can be submitted. Prices stay TBA until a quote is emailed.`],
             ].map(([title, description], index) => (
               <article key={title} className="flex gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#123d63] text-sm font-black text-white">{index + 1}</div>
