@@ -155,7 +155,7 @@ export const draftProducts: DraftProduct[] = [
     slug: 'selank-10mg', name: 'Selank', strength: '10 mg', image: `${imageRoot}/selank-10mg-bottle-mockup.webp`,
     category: 'Regulatory-peptide research',
     catalogueGroup: 'Cognitive',
-    identity: { cas: ['129954-34-3'], lot: '436-758-OA' },
+    identity: { cas: ['129954-34-3'], lot: '436-758-0A' },
     overview: 'Selank is a synthetic heptapeptide analogue related to the naturally occurring peptide tuftsin. Published research includes neurobehavioral and physiological studies, but the evidence base remains limited and region-specific.',
     catalogueFacts: ['Synthetic heptapeptide', 'Neurobehavioral research'],
     researchReferences: [{ label: 'Comparative Selank study', url: 'https://pubmed.ncbi.nlm.nih.gov/25176261/' }],
